@@ -1,5 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { useLaunch } from "@tarojs/taro";
+import "@kirklin/reset-css/taro/kirklin.css";
+import "uno.css";
 import "./app.scss";
 import { initSRSDK } from "@/sr.config";
 

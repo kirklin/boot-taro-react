@@ -26,5 +26,6 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["./src", "./types", "./config"],
+  "exclude": ["dist", "node_modules"],
   "compileOnSave": false
 }

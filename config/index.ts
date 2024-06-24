@@ -1,5 +1,6 @@
 import { type UserConfigExport, defineConfig } from "@tarojs/cli";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import { createSwcRegister, getModuleDefaultExport } from "@tarojs/helper";
 import devConfig from "./dev";
 import prodConfig from "./prod";
 import { logEnv, setupEnv } from "./envConfig";
@@ -12,6 +13,10 @@ logEnv();
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { _command, _mode }) => {
+  createSwcRegister({
+    only: [filePath => filePath.includes("@unocss")],
+  });
+  const UnoCSS = getModuleDefaultExport(await import("@unocss/webpack"));
   const baseConfig: UserConfigExport = {
     projectName: "boot-taro-react",
     date: "2024-6-24",
@@ -62,6 +67,7 @@ export default defineConfig(async (merge, { _command, _mode }) => {
       },
       webpackChain(chain) {
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
+        chain.plugin("unocss").use(UnoCSS());
       },
     },
     h5: {
@@ -91,6 +97,7 @@ export default defineConfig(async (merge, { _command, _mode }) => {
       },
       webpackChain(chain) {
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
+        chain.plugin("unocss").use(UnoCSS());
       },
     },
     rn: {
