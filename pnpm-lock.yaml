@@ -62,6 +62,9 @@ importers:
       react-dom:
         specifier: ^18.0.0
         version: 18.3.1(react@18.3.1)
+      sr-sdk-wxapp:
+        specifier: ^1.10.1
+        version: 1.10.1
     devDependencies:
       '@babel/core':
         specifier: ^7.8.0
@@ -6393,6 +6396,9 @@ packages:
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
 
+  sr-sdk-wxapp@1.10.1:
+    resolution: {integrity: sha512-vKPMh3/awum4dwL3BhTtJ4MXfAUKKncQ3y5t1lSIjUm9x1vjUlkjLQEAjWlYlRN81tsPaW7ycZfKGOytInfgXw==}
+
   sshpk@1.18.0:
     resolution: {integrity: sha512-2p2KJZTSqQ/I3+HX42EpYOa2l3f8Erv8MWKsy2I9uf4wA7yFIkXRffYdsx86y6z4vHtV8u7g+pPlr8/4ouAxsQ==}
     engines: {node: '>=0.10.0'}
@@ -8749,7 +8755,7 @@ snapshots:
       - '@types/webpack'
       - '@types/webpack-dev-server'
 
-  '@tarojs/components-react@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)':
+  '@tarojs/components-react@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.7
       '@tarojs/components': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)
@@ -8760,11 +8766,13 @@ snapshots:
     transitivePeerDependencies:
       - '@tarojs/helper'
       - '@tarojs/runtime'
+      - '@tarojs/shared'
       - '@types/react'
       - '@types/react-native'
       - '@types/webpack'
       - '@types/webpack-dev-server'
       - postcss
+      - react
       - vue
 
   '@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)':
@@ -8905,7 +8913,7 @@ snapshots:
   '@tarojs/plugin-platform-h5@3.6.32(@tarojs/helper@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)':
     dependencies:
       '@tarojs/components': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)
-      '@tarojs/components-react': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)
+      '@tarojs/components-react': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)
       '@tarojs/router': 3.6.32(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
       '@tarojs/runtime': 3.6.32(@tarojs/shared@3.6.32)
       '@tarojs/service': 3.6.32(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
@@ -8932,7 +8940,7 @@ snapshots:
     dependencies:
       '@tarojs/api': 3.6.32
       '@tarojs/components': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)
-      '@tarojs/components-react': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)
+      '@tarojs/components-react': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)
       '@tarojs/plugin-platform-h5': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1)
       '@tarojs/router': 3.6.32(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
       '@tarojs/runtime': 3.6.32(@tarojs/shared@3.6.32)
@@ -14746,6 +14754,8 @@ snapshots:
   split-on-first@1.1.0: {}
 
   sprintf-js@1.0.3: {}
+
+  sr-sdk-wxapp@1.10.1: {}
 
   sshpk@1.18.0:
     dependencies:
