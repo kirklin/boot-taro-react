@@ -1,6 +1,10 @@
 import kirklin from "@kirklin/eslint-config";
 
 export default kirklin({
+  rules: {
+    "node/prefer-global/process": "off",
+    "no-console": "warn",
+  },
   formatters: {
     /**
      * 格式化CSS、LESS、SCSS文件，以及Vue中的`<style>`块
