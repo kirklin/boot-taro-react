@@ -2,6 +2,13 @@ import { type UserConfigExport, defineConfig } from "@tarojs/cli";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import devConfig from "./dev";
 import prodConfig from "./prod";
+import { logEnv, setupEnv } from "./envConfig";
+
+// 设置环境变量
+setupEnv();
+
+// 打印环境变量和版本号
+logEnv();
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { _command, _mode }) => {
