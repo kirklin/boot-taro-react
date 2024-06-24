@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "husky commit-msg-lint start"
+npx --no-install commitlint --edit $1
+echo "husky commit-msg-lint end"
