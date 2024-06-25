@@ -5,6 +5,7 @@ import "@kirklin/reset-css/taro/kirklin.css";
 import "uno.css";
 import "./app.scss";
 import { initSRSDK } from "~/sr.config";
+import { setSystemInfoAsync } from "~/utils";
 
 // 是否开启腾讯有数
 const isSDKEnabled = false;
@@ -18,6 +19,7 @@ function App({ children }: PropsWithChildren<any>) {
   // 对应 onShow
   useDidShow(() => {
     nextTick(() => {
+      setSystemInfoAsync();
       if (process.env.TARO_ENV !== "h5") {
         const updateManager = getUpdateManager();
 

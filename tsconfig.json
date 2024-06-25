@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "es2017",
     "jsx": "react-jsx",
+    "lib": ["ESNext", "dom"],
     "experimentalDecorators": true,
     "rootDir": ".",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["ESNext", "dom"],
     "paths": {
       // TS5090 leading './'
       "~/*": ["./src/*"]
