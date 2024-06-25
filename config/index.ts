@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import { type UserConfigExport, defineConfig } from "@tarojs/cli";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSwcRegister, getModuleDefaultExport } from "@tarojs/helper";
@@ -12,7 +13,7 @@ setupEnv();
 logEnv();
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
-export default defineConfig(async (merge, { _command, _mode }) => {
+export default defineConfig(async (merge) => {
   createSwcRegister({
     only: [filePath => filePath.includes("@unocss")],
   });
@@ -26,6 +27,9 @@ export default defineConfig(async (merge, { _command, _mode }) => {
       750: 1,
       375: 2,
       828: 1.81 / 2,
+    },
+    alias: {
+      "~": resolve(process.cwd(), "src"),
     },
     sourceRoot: "src",
     outputRoot: "dist",
@@ -81,6 +85,18 @@ export default defineConfig(async (merge, { _command, _mode }) => {
         ignoreOrder: true,
         filename: "css/[name].[hash].css",
         chunkFilename: "css/[name].[chunkhash].css",
+      },
+      router: {
+        mode: "browser",
+      },
+      devServer: {
+        port: 8888,
+        hot: false,
+        host: "0.0.0.0",
+        historyApiFallback: true,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // 表示允许跨域
+        },
       },
       postcss: {
         autoprefixer: {

@@ -3,7 +3,7 @@ import { useLaunch } from "@tarojs/taro";
 import "@kirklin/reset-css/taro/kirklin.css";
 import "uno.css";
 import "./app.scss";
-import { initSRSDK } from "@/sr.config";
+import { initSRSDK } from "~/sr.config";
 
 // 是否开启腾讯有数
 const isSDKEnabled = false;

@@ -6,9 +6,10 @@
     "rootDir": ".",
     "module": "commonjs",
     "moduleResolution": "node",
+    "lib": ["ESNext", "dom"],
     "paths": {
       // TS5090 leading './'
-      "@/*": ["./src/*"]
+      "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "typeRoots": [
