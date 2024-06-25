@@ -77,6 +77,7 @@ export default defineConfig(async (merge) => {
     h5: {
       publicPath: "/",
       staticDirectory: "static",
+      esnextModules: ["@taroify"],
       output: {
         filename: "js/[name].[hash:8].js",
         chunkFilename: "js/[name].[chunkhash:8].js",
