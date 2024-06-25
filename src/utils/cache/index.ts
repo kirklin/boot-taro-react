@@ -3,6 +3,8 @@ import type { AnyObject, CacheConfig, CacheKey, CacheMethods, CacheValue, Combin
 
 /**
  * 缓存管理类
+ * @author Kirk Lin
+ *
  * @template R - RAM缓存类型
  * @template L - 本地存储缓存类型
  */

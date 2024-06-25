@@ -34,7 +34,7 @@ export default defineConfig(async (merge) => {
     sourceRoot: "src",
     // 开启多端同步调试
     outputRoot: `dist/${process.env.TARO_ENV}`,
-    plugins: [],
+    plugins: ["@taro-hooks/plugin-react"],
     defineConstants: {
     },
     copy: {

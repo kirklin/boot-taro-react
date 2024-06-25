@@ -14,6 +14,9 @@ importers:
       '@kirklin/reset-css':
         specifier: ^0.0.6
         version: 0.0.6
+      '@taro-hooks/plugin-react':
+        specifier: ^2.0.11
+        version: 2.0.11(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/service@3.6.32(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)))(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(react@18.3.1)
       '@taroify/core':
         specifier: 0.3.0-alpha.0
         version: 0.3.0-alpha.0(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -74,6 +77,9 @@ importers:
       sr-sdk-wxapp:
         specifier: ^1.10.1
         version: 1.10.1
+      taro-hooks:
+        specifier: ^2.0.11
+        version: 2.0.11(@tarojs/taro-h5@3.6.32(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
     devDependencies:
       '@babel/core':
         specifier: ^7.8.0
@@ -1875,6 +1881,36 @@ packages:
   '@szmarczak/http-timer@1.1.2':
     resolution: {integrity: sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==}
     engines: {node: '>=6'}
+
+  '@taro-hooks/ahooks@2.0.11':
+    resolution: {integrity: sha512-qDAOmfl/eU1TTJ2TpHH83tOrtyaK771bBYRf7RCgCPhvczwU/qu1MtAh8NSDy126dVIkJz3hEw151zKefUA+TQ==}
+    engines: {node: '>=12.0.0'}
+
+  '@taro-hooks/blueimp-canvas-to-blob@2.0.11':
+    resolution: {integrity: sha512-Hbntx7jpLLlpACc4+7zr3IXXVzJCilDRRWuDlnI7vQawDgbSFwqP9uvKe1jgC1GE+crfyynxXns2sgtNeKIAbw==}
+
+  '@taro-hooks/compressorjs@2.0.11':
+    resolution: {integrity: sha512-Rn1ltrd2agwkDnNgkLayOb23dOS5YDLkdRAEuzDznR4tFHLbPvEZO7qdNWUx4HhmDiwEtV7ijhTXd4Um+R780g==}
+
+  '@taro-hooks/plugin-react@2.0.11':
+    resolution: {integrity: sha512-kwWAx5fTLwlctpF/i0ncOH3Iy7ACpmM88lgzbW1vNb4rmT95ECDjkw2tRnVlnuEGl95z5xtvvT1CjI9DK77UaA==}
+    peerDependencies:
+      '@tarojs/helper': '>=3.4.x'
+      '@tarojs/runtime': '>=3.4.x'
+      '@tarojs/service': '>=3.4.x'
+      '@tarojs/shared': '>=3.4.x'
+      '@tarojs/taro': '>=3.4.x'
+      react: '>=16.9'
+
+  '@taro-hooks/shared@2.0.11':
+    resolution: {integrity: sha512-sy0pBcZy24sx4031b4mjcFgH6M+njmUXu8ZXXG26pSXbf30DYCtfuEzOVB+0sH4Y852LnFdpXZ4i1TGIkkQt+Q==}
+
+  '@taro-hooks/use-request@2.0.11':
+    resolution: {integrity: sha512-bMscnUPEOcBH7ifQcqCoJ1CisLR9QXtJaepst3TzLj/B0XqegQX86aVDfABdvwJBPZAnJOE9twsoHLSc0d93AQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@tarojs/taro': '>=3.4.x'
+      '@tarojs/taro-h5': '>=3.4.x'
 
   '@taroify/core@0.3.0-alpha.0':
     resolution: {integrity: sha512-R9golBLexpZDaHMS2+l+1OA+LY/i360EaVvL9BN4ePw6gKvfJxNgXamTOLqKiSh9AEleGFoCR3i/oooNoG+gmQ==}
@@ -5296,6 +5332,10 @@ packages:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
 
+  is-blob@2.1.0:
+    resolution: {integrity: sha512-SZ/fTft5eUhQM6oF/ZaASFDEdbFVe89Imltn9uZr03wdKMcWNVYSMjQPFtg05QuNkt5l5c135ElvXEQG0rk4tw==}
+    engines: {node: '>=6'}
+
   is-buffer@1.1.6:
     resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
 
@@ -5932,6 +5972,9 @@ packages:
 
   lodash-es@4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+
+  lodash-wechat@1.0.0:
+    resolution: {integrity: sha512-QoUc/QbEXNu1PsoWXRehZnfSZf5VznHRth5iUteq4qdM9myuKlhGIxSrFl9vhtDfqyUVuprPxXFbUGZ3oGM0JQ==}
 
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
@@ -7026,6 +7069,11 @@ packages:
     resolution: {integrity: sha512-hh2WYhq4fi8+b+/2Kg9CEge4fDPvHS534aOOvOZeQ3+Vf2mCFsaFBYj0i+iXcAq6I9Vzp5fjMFBlONvayDC1qg==}
     engines: {node: '>=6'}
 
+  querystring@0.2.1:
+    resolution: {integrity: sha512-wkvS7mL/JMugcup3/rMitHmd9ecIGd2lhFhK9N3UUQ450h66d1r3Y9nvXzQAW1Lq+wyx61k/1pfKS5KuKiyEbg==}
+    engines: {node: '>=0.4.x'}
+    deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+
   querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
 
@@ -7737,6 +7785,13 @@ packages:
   tar-stream@1.6.2:
     resolution: {integrity: sha512-rzS0heiNf8Xn7/mpdSVVSMAWAoy9bfb1WOTYC78Z0UQKeKa/CWS8FOq0lKGNa8DWKAn9gxjCvMLYc5PGXYlK2A==}
     engines: {node: '>= 0.8.0'}
+
+  taro-hooks@2.0.11:
+    resolution: {integrity: sha512-dBGcDtXSG2fAa/G2gv7A92WBFDZ/BYVjd0/94ZiVzJAJv68F4vYpP4DVOb8fhFBu3dO1W7PAlJEYEUncBgftFA==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@tarojs/taro': '>=3.4.x'
+      '@tarojs/taro-h5': '>=3.4.x'
 
   terser-webpack-plugin@5.3.10:
     resolution: {integrity: sha512-BKFPWlPDndPs+NGGCr1U59t0XScL5317Y0UReNrHaw9/FwhPENlq6bfgs+4yPfyP51vqC1bQ4rp1EfXW5ZSH9w==}
@@ -10351,6 +10406,40 @@ snapshots:
   '@szmarczak/http-timer@1.1.2':
     dependencies:
       defer-to-connect: 1.1.3
+
+  '@taro-hooks/ahooks@2.0.11':
+    dependencies:
+      '@taro-hooks/shared': 2.0.11
+      lodash-wechat: 1.0.0
+
+  '@taro-hooks/blueimp-canvas-to-blob@2.0.11': {}
+
+  '@taro-hooks/compressorjs@2.0.11':
+    dependencies:
+      '@taro-hooks/blueimp-canvas-to-blob': 2.0.11
+      is-blob: 2.1.0
+
+  '@taro-hooks/plugin-react@2.0.11(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/service@3.6.32(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)))(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(react@18.3.1)':
+    dependencies:
+      '@tarojs/helper': 3.6.32
+      '@tarojs/runtime': 3.6.32(@tarojs/shared@3.6.32)
+      '@tarojs/service': 3.6.32(@tarojs/shared@3.6.32)(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
+      '@tarojs/shared': 3.6.32
+      '@tarojs/taro': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)
+      acorn: 8.12.0
+      acorn-walk: 8.3.3
+      react: 18.3.1
+
+  '@taro-hooks/shared@2.0.11': {}
+
+  '@taro-hooks/use-request@2.0.11(@tarojs/taro-h5@3.6.32(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))':
+    dependencies:
+      '@taro-hooks/ahooks': 2.0.11
+      '@taro-hooks/shared': 2.0.11
+      '@tarojs/taro': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)
+      '@tarojs/taro-h5': 3.6.32(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
+      lodash-wechat: 1.0.0
+      taro-hooks: 2.0.11(@tarojs/taro-h5@3.6.32(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
 
   '@taroify/core@0.3.0-alpha.0(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@tarojs/shared@3.6.32)(@types/react@18.3.3)(postcss@8.4.38)(react@18.3.1))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -14627,6 +14716,8 @@ snapshots:
     dependencies:
       binary-extensions: 2.3.0
 
+  is-blob@2.1.0: {}
+
   is-buffer@1.1.6: {}
 
   is-builtin-module@3.2.1:
@@ -15460,6 +15551,8 @@ snapshots:
       p-locate: 6.0.0
 
   lodash-es@4.17.21: {}
+
+  lodash-wechat@1.0.0: {}
 
   lodash.camelcase@4.3.0: {}
 
@@ -16549,6 +16642,8 @@ snapshots:
       split-on-first: 1.1.0
       strict-uri-encode: 2.0.0
 
+  querystring@0.2.1: {}
+
   querystringify@2.2.0: {}
 
   queue-microtask@1.2.3: {}
@@ -17401,6 +17496,17 @@ snapshots:
       readable-stream: 2.3.8
       to-buffer: 1.1.1
       xtend: 4.0.2
+
+  taro-hooks@2.0.11(@tarojs/taro-h5@3.6.32(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)):
+    dependencies:
+      '@taro-hooks/ahooks': 2.0.11
+      '@taro-hooks/compressorjs': 2.0.11
+      '@taro-hooks/shared': 2.0.11
+      '@taro-hooks/use-request': 2.0.11(@tarojs/taro-h5@3.6.32(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
+      '@tarojs/taro': 3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38)
+      '@tarojs/taro-h5': 3.6.32(@tarojs/components@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))(@tarojs/taro@3.6.32(@tarojs/helper@3.6.32)(@tarojs/runtime@3.6.32(@tarojs/shared@3.6.32))(@types/react@18.3.3)(postcss@8.4.38))
+      lodash-wechat: 1.0.0
+      querystring: 0.2.1
 
   terser-webpack-plugin@5.3.10(@swc/core@1.3.96)(esbuild@0.19.12)(webpack@5.78.0(@swc/core@1.3.96)):
     dependencies:
