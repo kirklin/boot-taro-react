@@ -32,7 +32,8 @@ export default defineConfig(async (merge) => {
       "~": resolve(process.cwd(), "src"),
     },
     sourceRoot: "src",
-    outputRoot: "dist",
+    // 开启多端同步调试
+    outputRoot: `dist/${process.env.TARO_ENV}`,
     plugins: [],
     defineConstants: {
     },
