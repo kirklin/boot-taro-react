@@ -1,7 +1,7 @@
 import { Text, View } from "@tarojs/components";
 import { useLoad } from "@tarojs/taro";
 import "./index.scss";
-import { Button } from "@taroify/core";
+import PageWrapper from "~/components/PageWrapper";
 
 export default function Index() {
   useLoad(() => {
@@ -9,9 +9,14 @@ export default function Index() {
   });
 
   return (
-    <View className="index">
-      <Button color="primary">主要按钮</Button>
-      <Text className="text-red">Hello world!</Text>
-    </View>
+    <PageWrapper
+      navTitle={(
+        <Text className="text-xl font-bold">boot-taro-react</Text>
+      )}
+      className="pages-index-index p-4 h-full w-full"
+      shouldShowNavigationMenu={false}
+    >
+      <View />
+    </PageWrapper>
   );
 }
