@@ -83,13 +83,13 @@ export default function Navigation({
 
   return menuButton
     ? (
-      <NavBar
-        title={navTitle}
-        menuButton={menuButton}
-        shouldShowNavigationMenu={shouldShowNavigationMenu}
-        navClassName={navClassName}
-        renderCustomHeader={renderCustomHeader}
-      />
+        <NavBar
+          title={navTitle}
+          menuButton={menuButton}
+          shouldShowNavigationMenu={shouldShowNavigationMenu}
+          navClassName={navClassName}
+          renderCustomHeader={renderCustomHeader}
+        />
       )
     : null;
 }

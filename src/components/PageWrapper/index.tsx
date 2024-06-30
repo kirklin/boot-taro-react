@@ -38,13 +38,13 @@ export default function PageWrapper({
       {/* 根据enablePullToRefresh决定是否启用下拉刷新 */}
       {enablePullToRefresh
         ? (
-          <PullRefresh
-            loading={isRefreshing}
-            onRefresh={onRefresh}
-            className="h-full w-full"
-          >
-            {content}
-          </PullRefresh>
+            <PullRefresh
+              loading={isRefreshing}
+              onRefresh={onRefresh}
+              className="h-full w-full"
+            >
+              {content}
+            </PullRefresh>
           )
         : (
             content
