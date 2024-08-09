@@ -8,8 +8,11 @@ import { createCache } from "~/utils";
  * - 本地存储：用于存储需要持久化的长期数据（如系统信息）。
  */
 const cache = createCache({
-  ram: { temporaryToken: "" },
-  local: { sysInfo: undefined },
+  ram: { session_key: "" },
+  local: {
+    sysInfo: "", // 系统信息
+    openid: "", // 用户的 OpenID
+  },
 });
 
 export { cache };
