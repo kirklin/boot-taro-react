@@ -70,6 +70,10 @@ export default defineConfig(async (merge) => {
           },
         },
       },
+      // https://github.com/NervJS/taro/issues/7160
+      miniCssExtractPluginOption: {
+        ignoreOrder: true,
+      },
       webpackChain(chain) {
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
         chain.plugin("unocss").use(UnoCSS());
