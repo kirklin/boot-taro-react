@@ -105,6 +105,9 @@ importers:
       '@tarojs/cli':
         specifier: 4.0.5
         version: 4.0.5
+      '@tarojs/plugin-html':
+        specifier: ^4.0.5
+        version: 4.0.5(@tarojs/helper@4.0.5)(@tarojs/runtime@4.0.5)(@tarojs/shared@4.0.5)
       '@tarojs/taro-loader':
         specifier: 4.0.5
         version: 4.0.5(webpack@5.94.0(@swc/core@1.3.96)(esbuild@0.21.5))
@@ -2175,6 +2178,14 @@ packages:
         optional: true
       webpack:
         optional: true
+
+  '@tarojs/plugin-html@4.0.5':
+    resolution: {integrity: sha512-cgMJi76YYnBfhMmCM9hYdNsE3w43MCqmPoH9mazK+RIsnElr+sF93zMkXqvjXIAorwV1nAXK1Qb2/FEB7cqBFA==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@tarojs/helper': 4.0.5
+      '@tarojs/runtime': 4.0.5
+      '@tarojs/shared': 4.0.5
 
   '@tarojs/plugin-platform-alipay@4.0.5':
     resolution: {integrity: sha512-xybx5jqslNdemWXKM4aRfpQgoD1Je0gymqPZIFwytNy6ZGfGycWnC5wKzzzORsPNcxt+F+s2f+amizQ3F595Eg==}
@@ -8751,9 +8762,9 @@ snapshots:
 
   '@babel/plugin-proposal-object-rest-spread@7.20.7(@babel/core@7.25.2)':
     dependencies:
-      '@babel/compat-data': 7.24.7
+      '@babel/compat-data': 7.25.4
       '@babel/core': 7.25.2
-      '@babel/helper-compilation-targets': 7.24.7
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.7
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.25.2)
       '@babel/plugin-transform-parameters': 7.24.7(@babel/core@7.25.2)
@@ -9204,7 +9215,7 @@ snapshots:
       '@babel/helper-module-imports': 7.24.7
       '@babel/helper-plugin-utils': 7.24.7
       '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.25.2)
-      '@babel/types': 7.24.7
+      '@babel/types': 7.25.6
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -9398,7 +9409,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.25.2
       '@babel/helper-plugin-utils': 7.24.7
-      '@babel/helper-validator-option': 7.24.7
+      '@babel/helper-validator-option': 7.24.8
       '@babel/plugin-transform-react-display-name': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-react-jsx': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-react-jsx-development': 7.24.7(@babel/core@7.25.2)
@@ -10666,6 +10677,12 @@ snapshots:
       vite: 5.3.1(@types/node@22.5.4)(less@4.2.0)(lightningcss@1.25.1)(sass@1.50.0)(stylus@0.55.0)(terser@5.31.1)
       webpack: 5.94.0(@swc/core@1.3.96)(esbuild@0.21.5)
 
+  '@tarojs/plugin-html@4.0.5(@tarojs/helper@4.0.5)(@tarojs/runtime@4.0.5)(@tarojs/shared@4.0.5)':
+    dependencies:
+      '@tarojs/helper': 4.0.5
+      '@tarojs/runtime': 4.0.5
+      '@tarojs/shared': 4.0.5
+
   '@tarojs/plugin-platform-alipay@4.0.5(@tarojs/service@4.0.5)(@tarojs/shared@4.0.5)':
     dependencies:
       '@tarojs/service': 4.0.5
@@ -11606,7 +11623,7 @@ snapshots:
 
   '@vue/compiler-core@3.4.30':
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.25.6
       '@vue/shared': 3.4.30
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -11619,13 +11636,13 @@ snapshots:
 
   '@vue/compiler-sfc@3.4.30':
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.25.6
       '@vue/compiler-core': 3.4.30
       '@vue/compiler-dom': 3.4.30
       '@vue/compiler-ssr': 3.4.30
       '@vue/shared': 3.4.30
       estree-walker: 2.0.2
-      magic-string: 0.30.10
+      magic-string: 0.30.11
       postcss: 8.4.45
       source-map-js: 1.2.0
 
@@ -15572,7 +15589,7 @@ snapshots:
       '@babel/plugin-transform-template-literals': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-typescript': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-unicode-regex': 7.24.7(@babel/core@7.25.2)
-      '@babel/template': 7.24.7
+      '@babel/template': 7.25.0
       react-refresh: 0.4.3
     transitivePeerDependencies:
       - supports-color

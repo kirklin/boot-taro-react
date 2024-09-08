@@ -20,7 +20,7 @@ export default defineConfig(async (merge) => {
   const UnoCSS = getModuleDefaultExport(await import("@unocss/webpack"));
   const baseConfig: UserConfigExport = {
     projectName: "boot-taro-react",
-    date: "2024-6-24",
+    date: "2024-09-10",
     designWidth: 750,
     deviceRatio: {
       640: 2.34 / 2,
@@ -34,7 +34,7 @@ export default defineConfig(async (merge) => {
     sourceRoot: "src",
     // 开启多端同步调试
     outputRoot: `dist/${process.env.TARO_ENV}`,
-    plugins: ["@taro-hooks/plugin-react"],
+    plugins: ["@taro-hooks/plugin-react", "@tarojs/plugin-html"],
     defineConstants: {
     },
     copy: {
@@ -119,7 +119,7 @@ export default defineConfig(async (merge) => {
       },
     },
     rn: {
-      appName: "taroDemo",
+      appName: "boot-taro-react",
       postcss: {
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
