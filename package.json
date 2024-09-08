@@ -99,7 +99,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest",
-    "prepare": "npx husky install",
+    "prepare": "npx husky",
     "preinstall": "npx only-allow pnpm"
   },
   "browserslist": [
