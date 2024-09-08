@@ -1,4 +1,4 @@
-// eslint-disable-next-line ts/no-require-imports,ts/no-var-requires
+// eslint-disable-next-line ts/no-require-imports
 const defineJestConfig = require("@tarojs/test-utils-react/dist/jest.js").default;
 
 module.exports = defineJestConfig({
