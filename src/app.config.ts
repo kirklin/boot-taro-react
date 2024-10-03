@@ -1,6 +1,9 @@
+import { ROUTES } from "~/constants/routes";
+
 export default defineAppConfig({
   pages: [
-    "pages/index/index",
+    ROUTES.HOME,
+    ROUTES.PROFILE,
   ],
   window: {
     // 微信全局设置自定义导航栏
