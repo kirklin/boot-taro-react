@@ -3,6 +3,7 @@ import { ConfigProvider, PullRefresh } from "@taroify/core";
 import Navigation from "./Navigation";
 import type { PageWrapperProps } from "./types";
 import BottomActions from "~/components/PageWrapper/BottomActions";
+import { useTheme } from "~/hooks/useTheme";
 
 // 页面包装器组件
 export default function PageWrapper({
@@ -17,6 +18,8 @@ export default function PageWrapper({
   onRefresh,
   enablePullToRefresh = false,
 }: PageWrapperProps) {
+  const { getThemeVars } = useTheme();
+
   // 主要内容
   const content = (
     <View className={className}>
@@ -26,8 +29,7 @@ export default function PageWrapper({
 
   return (
     <ConfigProvider
-      theme={{
-      }}
+      theme={getThemeVars()}
     >
       <View className="page-wrapper flex flex-col h-screen bg-gray-1">
         {/* 导航栏组件 */}

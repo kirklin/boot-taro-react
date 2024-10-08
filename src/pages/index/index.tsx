@@ -45,7 +45,7 @@ export default function Index() {
           {/* 功能卡片区域 */}
           <View className="flex space-x-4">
             {/* 示例卡片1 */}
-            <View className="bg-blue-600 rounded-2xl shadow-sm p-4 flex-1" onClick={() => redirectTo(ROUTES.HOME)}>
+            <View className="bg-primary rounded-2xl shadow-sm p-4 flex-1" onClick={() => redirectTo(ROUTES.HOME)}>
               <View className="text-lg font-medium text-white mb-4">示例卡片1</View>
               <Avatar.Group>
                 {[1, 2, 3].map(i => (

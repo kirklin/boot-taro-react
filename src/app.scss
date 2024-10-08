@@ -1,0 +1,108 @@
+page {
+  // Color Palette
+  --black: #000;
+  --white: #fff;
+  --gray-1: #f7f8fa;
+  --gray-2: #f2f3f5;
+  --gray-3: #e5e6eb;
+  --gray-4: #c9cdd4;
+  --gray-5: #a9aeb8;
+  --gray-6: #86909c;
+  --gray-7: #6b7785;
+  --gray-8: #4e5969;
+  --gray-9: #272e3b;
+  --gray-10: #1d2129;
+  --red: #f53f3f;
+  --blue: #165dff;
+  --blue-1: #e8f3ff;
+  --blue-2: #bedaff;
+  --blue-3: #94bfff;
+  --blue-4: #6aa1ff;
+  --blue-5: #4080ff;
+  --blue-6: #165dff;
+  --blue-7: #0e42d2;
+  --blue-8: #072ca6;
+  --blue-9: #031a79;
+  --blue-10: #000d4d;
+  --orange: #f77234;
+  --orange-dark: #ed6a0c;
+  --orange-light: #fffbe8;
+  --green: #9fdb1d;
+  --green-1: #fcffe8;
+  --green-2: #edf8bb;
+  --green-3: #dcf190;
+  --green-4: #c9e968;
+  --green-5: #b5e241;
+  --green-6: #9fdb1d;
+  --green-7: #7eb712;
+  --green-8: #5f940a;
+  --green-9: #437004;
+  --green-10: #2a4d00;
+
+  // Gradient Colors
+  --gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
+  --gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
+
+  // Component Colors
+  --primary-color: var(--blue);
+  --primary-color-1: var(--blue-1);
+  --primary-color-2: var(--blue-2);
+  --primary-color-3: var(--blue-3);
+  --primary-color-4: var(--blue-4);
+  --primary-color-5: var(--blue-5);
+  --primary-color-6: var(--blue-6);
+  --primary-color-7: var(--blue-7);
+  --primary-color-8: var(--blue-8);
+  --primary-color-9: var(--blue-9);
+  --primary-color-10: var(--blue-10);
+  --success-color: var(--green);
+  --danger-color: var(--red);
+  --warning-color: var(--orange);
+  --text-color: var(--gray-10);
+  --active-color: var(--gray-2);
+  --active-opacity: 0.7;
+  --disabled-opacity: 0.5;
+  --background-color: var(--gray-1);
+  --background-color-light: #fafafa;
+  --text-link-color: #576b95;
+
+  // Padding
+  --padding-base: 8px;
+  --padding-xs: 8px;
+  --padding-sm: 12px;
+  --padding-md: 16px;
+  --padding-lg: 24px;
+  --padding-xl: 32px;
+
+  // Font
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-weight-bold: 700;
+  --line-height-xs: 1rem;
+  --line-height-sm: 1.25rem;
+  --line-height-base: 1.5rem;
+  --line-height-md: 1.5rem;
+  --line-height-lg: 1.75rem;
+  --base-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto,
+    "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  --price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
+
+  // Animation
+  --animation-duration-base: 0.5s;
+  --animation-duration-fast: 0.3s;
+  --animation-timing-function-enter: cubic-bezier(0.32, 0, 0.67, 0);
+  --animation-timing-function-leave: cubic-bezier(0.33, 1, 0.68, 1);
+
+  // Border
+  --border-color: var(--gray-3);
+  --border-width-base: 1px;
+  --border-radius-sm: 0.125rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-max: 999px;
+}
