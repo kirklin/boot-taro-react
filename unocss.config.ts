@@ -146,6 +146,8 @@ export default defineConfig({
       textLink: "var(--text-link-color)",
     },
     fontSize: {
+      xxxs: "var(--font-size-xxxs)",
+      xxs: "var(--font-size-xxs)",
       xs: "var(--font-size-xs)",
       sm: "var(--font-size-sm)",
       base: "var(--font-size-base)",
