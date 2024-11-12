@@ -31,7 +31,7 @@ export default function PageWrapper({
     <ConfigProvider
       theme={getThemeVars()}
     >
-      <View className="page-wrapper flex flex-col h-screen bg-gray-1">
+      <View className="page-wrapper flex flex-col h-full min-h-screen bg-gray-1 bg-opacity-10">
         {/* 导航栏组件 */}
         {shouldShowNavigation && (
           <Navigation
