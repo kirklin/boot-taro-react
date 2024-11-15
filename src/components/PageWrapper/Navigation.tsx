@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import type { MenuButtonInfo, NavBarProps, NavigationProps } from "./types";
 import { View } from "@tarojs/components";
 import Taro from "@tarojs/taro";
-import type { MenuButtonInfo, NavBarProps, NavigationProps } from "./types";
+import { useEffect, useState } from "react";
 import NavigationMenu from "~/components/PageWrapper/NavigationMenu";
 
 // NavBar 组件
@@ -29,13 +29,13 @@ function NavBar({
         >
           {shouldShowNavigationMenu && <NavigationMenu homeUrl="pages/index/index" menuButton={menuButton} />}
           <View
-            className="navigation-bar__content flex flex-col items-center justify-center h-full"
+            className="navigation-bar__content h-full flex flex-col items-center justify-center"
             style={{
               marginLeft: `${horizontalPadding}px`,
               marginRight: `${horizontalPadding}px`,
             }}
           >
-            <View className="navigation-bar__title w-full font-bold text-base text-center text-ellipsis font-chinese">
+            <View className="navigation-bar__title w-full text-ellipsis text-center text-base font-bold font-chinese">
               {title}
             </View>
           </View>

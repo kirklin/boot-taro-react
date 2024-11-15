@@ -1,9 +1,9 @@
-import { View } from "@tarojs/components";
-import { ConfigProvider, PullRefresh } from "@taroify/core";
-import Navigation from "./Navigation";
 import type { PageWrapperProps } from "./types";
+import { ConfigProvider, PullRefresh } from "@taroify/core";
+import { View } from "@tarojs/components";
 import BottomActions from "~/components/PageWrapper/BottomActions";
 import { useTheme } from "~/hooks/useTheme";
+import Navigation from "./Navigation";
 
 // 页面包装器组件
 export default function PageWrapper({
@@ -31,7 +31,7 @@ export default function PageWrapper({
     <ConfigProvider
       theme={getThemeVars()}
     >
-      <View className="page-wrapper flex flex-col h-full min-h-screen bg-gray-1 bg-opacity-10">
+      <View className="page-wrapper h-full min-h-screen flex flex-col bg-gray-1 bg-opacity-10">
         {/* 导航栏组件 */}
         {shouldShowNavigation && (
           <Navigation

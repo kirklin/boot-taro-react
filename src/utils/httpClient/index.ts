@@ -1,9 +1,9 @@
-import { hideLoading } from "@tarojs/taro";
-import DOMAIN from "./constants";
 import type { RequestConfig, ResponseResult } from "./apiClient";
-import { apiRequest } from "./apiClient";
 import type { ApiPath, ApiVersion, Environment } from "./constants";
+import { hideLoading } from "@tarojs/taro";
 import { cache } from "~/cache";
+import { apiRequest } from "./apiClient";
+import DOMAIN from "./constants";
 
 function formatUrl(option: RequestConfig) {
   const [, prefix] = option.url.split("/") as [string, ApiVersion];

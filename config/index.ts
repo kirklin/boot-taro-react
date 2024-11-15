@@ -1,10 +1,10 @@
 import { resolve } from "node:path";
-import { type UserConfigExport, defineConfig } from "@tarojs/cli";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import { defineConfig, type UserConfigExport } from "@tarojs/cli";
 import { createSwcRegister, getModuleDefaultExport } from "@tarojs/helper";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import devConfig from "./dev";
-import prodConfig from "./prod";
 import { logEnv, setupEnv } from "./envConfig";
+import prodConfig from "./prod";
 
 // 设置环境变量
 setupEnv();

@@ -1,11 +1,11 @@
 import type { PropsWithChildren } from "react";
-import { nextTick, useDidHide, useDidShow, useLaunch } from "@tarojs/taro";
 import { View } from "@tarojs/components";
+import { nextTick, useDidHide, useDidShow, useLaunch } from "@tarojs/taro";
+import { initSRSDK } from "~/sr.config";
+import { setSystemInfoAsync, updateVersion } from "~/utils";
 import "@kirklin/reset-css/taro/kirklin.css";
 import "uno.css";
 import "./app.scss";
-import { initSRSDK } from "~/sr.config";
-import { setSystemInfoAsync, updateVersion } from "~/utils";
 
 // 是否开启腾讯有数
 const isSDKEnabled = false;

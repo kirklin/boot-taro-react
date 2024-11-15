@@ -23,4 +23,5 @@ export default kirklin({
      */
     markdown: "prettier",
   },
+  unocss: true,
 });

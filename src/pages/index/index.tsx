@@ -1,10 +1,10 @@
+import { Avatar, Tag } from "@taroify/core";
 import { Image, ScrollView, Text, View } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
 import { useState } from "react";
-import "./index.scss";
-import { Avatar, Tag } from "@taroify/core";
 import PageWrapper from "~/components/PageWrapper";
 import { ROUTES } from "~/constants/routes";
+import "./index.scss";
 
 export default function Index() {
   const [isToggled, setIsToggled] = useState(false);
@@ -23,96 +23,96 @@ export default function Index() {
 
   return (
     <PageWrapper
-      navTitle={<View className="text-xl font-bold text-gray-800">Boot Taro React</View>}
+      navTitle={<View className="text-xl text-gray-800 font-bold">Boot Taro React</View>}
       className="h-full"
       shouldShowNavigationMenu={false}
     >
       <ScrollView scrollY className="h-full">
         <View className="p-4 space-y-6">
           {/* 用户信息区域 */}
-          <View className="flex justify-between items-center" onClick={() => redirectTo(ROUTES.PROFILE)}>
+          <View className="flex items-center justify-between" onClick={() => redirectTo(ROUTES.PROFILE)}>
             <View className="flex items-center space-x-2">
-              <View className="text-2xl wave-hand">👋</View>
-              <View className="text-lg font-medium text-gray-800">你好, 开发者</View>
+              <View className="wave-hand text-2xl">👋</View>
+              <View className="text-lg text-gray-800 font-medium">你好, 开发者</View>
             </View>
             <Avatar src="https://avatars.githubusercontent.com/u/17453452?v=4" size="large" />
           </View>
 
-          <View className="text-lg font-medium text-gray-600 mb-4">
+          <View className="mb-4 text-lg text-gray-600 font-medium">
             欢迎使用Boot Taro React模板
           </View>
 
           {/* 功能卡片区域 */}
           <View className="flex space-x-4">
             {/* 示例卡片1 */}
-            <View className="bg-primary rounded-2xl shadow-sm p-4 flex-1" onClick={() => redirectTo(ROUTES.HOME)}>
-              <View className="text-lg font-medium text-white mb-4">示例卡片1</View>
+            <View className="flex-1 rounded-2xl bg-primary p-4 shadow-sm" onClick={() => redirectTo(ROUTES.HOME)}>
+              <View className="mb-4 text-lg text-white font-medium">示例卡片1</View>
               <Avatar.Group>
                 {[1, 2, 3].map(i => (
                   <Avatar key={i} src={`https://avatars.githubusercontent.com/u/17453452?v=${i}`} />
                 ))}
               </Avatar.Group>
-              <View className="text-sm text-white mt-2">
+              <View className="mt-2 text-sm text-white">
                 这里可以放一些统计信息
               </View>
             </View>
 
             {/* 示例卡片2 */}
-            <View className="space-y-4 flex-1">
-              <View className="bg-white rounded-2xl shadow-sm p-4">
-                <View className="flex items-center justify-between mb-2">
+            <View className="flex-1 space-y-4">
+              <View className="rounded-2xl bg-white p-4 shadow-sm">
+                <View className="mb-2 flex items-center justify-between">
                   <View className="flex items-center">
-                    <View className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-2">
-                      <View className="text-purple-500 i-mdi-cog text-lg" />
+                    <View className="mr-2 h-8 w-8 flex items-center justify-center rounded-full bg-white">
+                      <View className="i-mdi-cog text-lg text-purple-500" />
                     </View>
-                    <Text className="text-base font-medium text-gray-800">示例开关</Text>
+                    <Text className="text-base text-gray-800 font-medium">示例开关</Text>
                   </View>
                 </View>
-                <View className="flex justify-center mb-2">
+                <View className="mb-2 flex justify-center">
                   <View
-                    className="w-12 h-6 bg-gray-200 rounded-full p-1 cursor-pointer"
+                    className="h-6 w-12 cursor-pointer rounded-full bg-gray-200 p-1"
                     onClick={toggleSwitch}
                   >
                     <View
-                      className="w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 ease-in-out"
+                      className="h-4 w-4 transform rounded-full bg-white shadow-md transition-transform duration-300 ease-in-out"
                       style={{ transform: isToggled ? "translateX(1.5rem)" : "translateX(0)" }}
                     />
                   </View>
                 </View>
-                <Text className="text-xs text-gray-600 text-center">这是一个示例开关</Text>
+                <Text className="text-center text-xs text-gray-600">这是一个示例开关</Text>
               </View>
 
-              <View className="bg-white rounded-2xl shadow-sm p-4" onClick={() => redirectTo(ROUTES.HOME)}>
-                <View className="flex items-center justify-between mb-2">
+              <View className="rounded-2xl bg-white p-4 shadow-sm" onClick={() => redirectTo(ROUTES.HOME)}>
+                <View className="mb-2 flex items-center justify-between">
                   <View className="flex items-center">
-                    <View className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-2">
-                      <View className="text-green-500 i-mdi-card text-lg" />
+                    <View className="mr-2 h-8 w-8 flex items-center justify-center rounded-full bg-white">
+                      <View className="i-mdi-card text-lg text-green-500" />
                     </View>
-                    <Text className="text-base font-medium text-gray-800">示例功能卡片</Text>
+                    <Text className="text-base text-gray-800 font-medium">示例功能卡片</Text>
                   </View>
                 </View>
-                <Text className="text-xs text-gray-600 text-center">点击查看示例</Text>
+                <Text className="text-center text-xs text-gray-600">点击查看示例</Text>
               </View>
             </View>
           </View>
 
           {/* 示例列表区域 */}
           <View className="">
-            <View className="flex justify-between items-center mb-4">
-              <View className="text-lg font-medium text-gray-800">
+            <View className="mb-4 flex items-center justify-between">
+              <View className="text-lg text-gray-800 font-medium">
                 <Text className="mr-1">示例列表</Text>
                 <Tag color="primary" shape="rounded">
                   3
                 </Tag>
               </View>
               <View
-                className="text-blue-500 rounded-full text-sm font-medium"
+                className="rounded-full text-sm text-blue-500 font-medium"
                 onClick={() => redirectTo(ROUTES.HOME)}
               >
                 查看全部
               </View>
             </View>
-            <View className="space-y-4 m-0 relative">
+            <View className="relative m-0 space-y-4">
               {[1, 2, 3].map((item, index) => (
                 <View
                   key={item}
@@ -122,14 +122,14 @@ export default function Index() {
                     zIndex: 4 - index,
                   }}
                 >
-                  <View className="bg-gray-100 rounded-xl p-4 shadow-lg flex items-center">
-                    <Image className="w-8 h-8 rounded-full mr-2" src={`https://avatars.githubusercontent.com/u/17453452?v=" />${item}`} />
+                  <View className="flex items-center rounded-xl bg-gray-100 p-4 shadow-lg">
+                    <Image className="mr-2 h-8 w-8 rounded-full" src={`https://avatars.githubusercontent.com/u/17453452?v=" />${item}`} />
                     <View className="flex-1">
-                      <View className="font-medium text-gray-800">
+                      <View className="text-gray-800 font-medium">
                         示例项目
                         {item}
                       </View>
-                      <View className="text-gray-600 truncate">这是一个示例项目描述</View>
+                      <View className="truncate text-gray-600">这是一个示例项目描述</View>
                     </View>
                   </View>
                 </View>

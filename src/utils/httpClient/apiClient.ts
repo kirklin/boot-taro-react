@@ -1,5 +1,5 @@
-import Taro from "@tarojs/taro";
 import type { ApiPath } from "./constants";
+import Taro from "@tarojs/taro";
 
 // 定义API响应类型
 export interface ApiResponse<T = any> {

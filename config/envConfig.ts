@@ -53,4 +53,4 @@ function logEnv(): void {
 }
 
 // 导出setupEnv和logEnv函数，以及version变量
-export { setupEnv, logEnv, version };
+export { logEnv, setupEnv, version };

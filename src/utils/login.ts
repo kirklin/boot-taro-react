@@ -1,8 +1,8 @@
 import type Taro from "@tarojs/taro";
 import { useLogin } from "taro-hooks";
-import { cache } from "~/cache";
 import type { WechatAuthResponse } from "~/api/wechat";
 import { wechatAuthApi } from "~/api/wechat";
+import { cache } from "~/cache";
 
 /**
  * 获取微信认证信息

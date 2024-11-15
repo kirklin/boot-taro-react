@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
 import type { ConfigProviderThemeVars } from "@taroify/core";
+import { useCallback, useState } from "react";
 import type { ThemeName } from "~/constants/themes";
 import { themes } from "~/constants/themes";
 

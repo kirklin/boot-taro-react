@@ -1,9 +1,9 @@
-import { Text, View } from "@tarojs/components";
 import { Avatar, Toast } from "@taroify/core";
-import "./index.scss";
+import { Text, View } from "@tarojs/components";
 import PageWrapper from "~/components/PageWrapper";
 import ProfileSettingsGroup from "~/pages/profile/ProfileSettingsGroup";
 import ProfileSettingsItem from "~/pages/profile/ProfileSettingsItem";
+import "./index.scss";
 
 function UserProfilePage() {
   const menuItems = [
@@ -14,19 +14,19 @@ function UserProfilePage() {
   return (
     <PageWrapper
       navTitle={(
-        <Text className="text-xl font-bold text-gray-800">我的</Text>
+        <Text className="text-xl text-gray-800 font-bold">我的</Text>
       )}
-      className="pages-index-index p-6 h-full w-full"
+      className="pages-index-index h-full w-full p-6"
       shouldShowNavigationMenu={true}
     >
-      <View className="p-4 pb-8 rounded-b-3xl flex flex-col items-center justify-center mb-4">
+      <View className="mb-4 flex flex-col items-center justify-center rounded-b-3xl p-4 pb-8">
         <Avatar
           size="large"
-          className="mb-4 rounded-full border-white border-2"
+          className="mb-4 border-2 border-white rounded-full"
         />
-        <Text className="nickname text-2xl font-bold text-gray-800">微信用户</Text>
+        <Text className="nickname text-2xl text-gray-800 font-bold">微信用户</Text>
       </View>
-      <View className="rounded-3xl px-4 bg-white shadow-sm">
+      <View className="rounded-3xl bg-white px-4 shadow-sm">
         <ProfileSettingsGroup title="">
           {menuItems.map(item => (
             <ProfileSettingsItem

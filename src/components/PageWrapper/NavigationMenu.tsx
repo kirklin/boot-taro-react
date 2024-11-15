@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
-import { getCurrentPages, navigateBack, reLaunch } from "@tarojs/taro";
-import { View } from "@tarojs/components";
 import type { NavigationMenuProps } from "./types";
+import { View } from "@tarojs/components";
+import { getCurrentPages, navigateBack, reLaunch } from "@tarojs/taro";
+import { useCallback, useEffect, useState } from "react";
 
 // 菜单按钮组件
 function MenuButton({ menuButton, homeUrl }: NavigationMenuProps) {

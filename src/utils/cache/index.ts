@@ -1,5 +1,5 @@
-import { getStorage, getStorageSync, removeStorage, removeStorageSync, setStorage, setStorageSync } from "@tarojs/taro";
 import type { AnyObject, CacheConfig, CacheKey, CacheMethods, CacheValue, CombinedCache } from "./types";
+import { getStorage, getStorageSync, removeStorage, removeStorageSync, setStorage, setStorageSync } from "@tarojs/taro";
 
 /**
  * 缓存管理类
