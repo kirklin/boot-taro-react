@@ -1,9 +1,9 @@
-import { ROUTES } from "~/constants/routes";
+import { ADAPTED_PAGES } from "~/constants/routes";
 
 export default defineAppConfig({
   pages: [
-    ROUTES.HOME,
-    ROUTES.PROFILE,
+    ADAPTED_PAGES.HOME,
+    ADAPTED_PAGES.PROFILE,
   ],
   window: {
     // 微信全局设置自定义导航栏

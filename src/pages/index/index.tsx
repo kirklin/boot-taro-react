@@ -3,7 +3,7 @@ import { Image, ScrollView, Text, View } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
 import { useState } from "react";
 import PageWrapper from "~/components/PageWrapper";
-import { ROUTES } from "~/constants/routes";
+import { ADAPTED_PAGES } from "~/constants/routes";
 import "./index.scss";
 
 export default function Index() {
@@ -30,7 +30,7 @@ export default function Index() {
       <ScrollView scrollY className="h-full">
         <View className="p-4 space-y-6">
           {/* 用户信息区域 */}
-          <View className="flex items-center justify-between" onClick={() => redirectTo(ROUTES.PROFILE)}>
+          <View className="flex items-center justify-between" onClick={() => redirectTo(ADAPTED_PAGES.PROFILE)}>
             <View className="flex items-center space-x-2">
               <View className="wave-hand text-2xl">👋</View>
               <View className="text-lg text-gray-800 font-medium">你好, 开发者</View>
@@ -45,7 +45,7 @@ export default function Index() {
           {/* 功能卡片区域 */}
           <View className="flex space-x-4">
             {/* 示例卡片1 */}
-            <View className="flex-1 rounded-2xl bg-primary p-4 shadow-sm" onClick={() => redirectTo(ROUTES.HOME)}>
+            <View className="flex-1 rounded-2xl bg-primary p-4 shadow-sm" onClick={() => redirectTo(ADAPTED_PAGES.HOME)}>
               <View className="mb-4 text-lg text-white font-medium">示例卡片1</View>
               <Avatar.Group>
                 {[1, 2, 3].map(i => (
@@ -82,7 +82,7 @@ export default function Index() {
                 <Text className="text-center text-xs text-gray-600">这是一个示例开关</Text>
               </View>
 
-              <View className="rounded-2xl bg-white p-4 shadow-sm" onClick={() => redirectTo(ROUTES.HOME)}>
+              <View className="rounded-2xl bg-white p-4 shadow-sm" onClick={() => redirectTo(ADAPTED_PAGES.HOME)}>
                 <View className="mb-2 flex items-center justify-between">
                   <View className="flex items-center">
                     <View className="mr-2 h-8 w-8 flex items-center justify-center rounded-full bg-white">
@@ -107,7 +107,7 @@ export default function Index() {
               </View>
               <View
                 className="rounded-full text-sm text-blue-500 font-medium"
-                onClick={() => redirectTo(ROUTES.HOME)}
+                onClick={() => redirectTo(ADAPTED_PAGES.HOME)}
               >
                 查看全部
               </View>
