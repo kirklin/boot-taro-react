@@ -23,7 +23,7 @@ export default function Index() {
 
   return (
     <PageWrapper
-      navTitle={<View className="text-xl text-gray-800 font-bold">Boot Taro React</View>}
+      navTitle="Boot Taro React"
       className="h-full"
       shouldShowNavigationMenu={false}
     >

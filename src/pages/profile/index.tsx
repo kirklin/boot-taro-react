@@ -13,9 +13,7 @@ function UserProfilePage() {
 
   return (
     <PageWrapper
-      navTitle={(
-        <Text className="text-xl text-gray-800 font-bold">我的</Text>
-      )}
+      navTitle="我的"
       className="pages-index-index h-full w-full p-6"
       shouldShowNavigationMenu={true}
     >

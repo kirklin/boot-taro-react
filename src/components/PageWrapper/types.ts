@@ -180,4 +180,10 @@ export interface PageWrapperProps {
     statusBarHeight: number,
     safeAreaRight: number,
   ) => ReactNode;
+
+  /**
+   * 自定义背景类名，允许用户覆盖默认背景样式
+   * Custom background class name, allows user to override default background styles
+   */
+  backgroundClassName?: string;
 }
