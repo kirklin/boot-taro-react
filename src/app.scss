@@ -66,37 +66,42 @@ page {
   --background-color-light: #fafafa;
   --text-link-color: #576b95;
 
-  // Padding
-  --padding-base: 8px;
-  --padding-xs: 8px;
-  --padding-sm: 12px;
-  --padding-md: 16px;
-  --padding-lg: 24px;
-  --padding-xl: 32px;
+  /* Padding */
+  --padding-base: 0.45rem;
+  --padding-xs: 0.5rem;
+  --padding-sm: 0.75rem; /* 12px */
+  --padding-md: 1rem; /* 16px */
+  --padding-lg: 1.5rem; /* 24px */
+  --padding-xl: 2rem; /* 32px */
 
-  // Font
+  /* Font Size */
   --font-size-xxxs: 0.5rem;
   --font-size-xxs: 0.625rem;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 0.9375rem; /* 15px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+
+  /* Font Weight */
   --font-weight-bold: 700;
-  --line-height-xs: 1rem;
-  --line-height-sm: 1.25rem;
-  --line-height-base: 1.5rem;
-  --line-height-md: 1.5rem;
-  --line-height-lg: 1.75rem;
+
+  /* Line Height */
+  --line-height-xs: 1rem; /* 16px */
+  --line-height-sm: 1.25rem; /* 20px */
+  --line-height-md: 1.5rem; /* 24px */
+  --line-height-base: 1.5rem; /* 24px */
+  --line-height-lg: 1.75rem; /* 28px */
+
   --base-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto,
-    "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   --price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
 
   // Animation
-  --animation-duration-base: 0.5s;
-  --animation-duration-fast: 0.3s;
+  --animation-duration-base: 0.3s;
+  --animation-duration-fast: 0.2s;
   --animation-timing-function-enter: cubic-bezier(0.32, 0, 0.67, 0);
   --animation-timing-function-leave: cubic-bezier(0.33, 1, 0.68, 1);
 
