@@ -1,8 +1,10 @@
 import type { PropsWithChildren } from "react";
 import { View } from "@tarojs/components";
 import { nextTick, useDidHide, useDidShow, useLaunch } from "@tarojs/taro";
+import { useLaunchOptions } from "taro-hooks";
+import { cache } from "~/cache";
 import { initSRSDK } from "~/sr.config";
-import { setSystemInfoAsync, updateVersion } from "~/utils";
+import { fetchAndCacheSystemInfoAsync, updateVersion } from "~/utils";
 import "@kirklin/reset-css/taro/kirklin.css";
 import "uno.css";
 import "./app.scss";
@@ -13,13 +15,14 @@ const isSDKEnabled = false;
 initSRSDK(isSDKEnabled);
 
 function App({ children }: PropsWithChildren<any>) {
+  const launchOptions = useLaunchOptions();
   useLaunch(() => {
-    console.log("App launched.");
+    cache.set("launchOptions", launchOptions).then(() => console.log("App launched.", launchOptions));
   });
   // 对应 onShow
   useDidShow(() => {
     nextTick(() => {
-      setSystemInfoAsync();
+      fetchAndCacheSystemInfoAsync().then();
       if (process.env.TARO_ENV !== "h5") {
         updateVersion();
       }
