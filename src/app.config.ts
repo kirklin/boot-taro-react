@@ -1,17 +1,17 @@
-import { ADAPTED_PAGES } from "~/constants/routes";
+import { ADAPTED_PAGES, RouteNames } from "~/constants/routes";
 
 export default defineAppConfig({
   pages: [
-    ADAPTED_PAGES.HOME,
-    ADAPTED_PAGES.PROFILE,
+    ADAPTED_PAGES[RouteNames.HOME],
+    ADAPTED_PAGES[RouteNames.PROFILE],
   ],
   window: {
     // 微信全局设置自定义导航栏
     navigationStyle: "custom",
     // 支付宝全局设置自定义导航栏
-    transparentTitle: "always",
+    // transparentTitle: "always",
     // 支付宝是否允许导航栏点击穿透。默认 NO，支持 YES / NO。
-    titlePenetrate: "YES",
+    // titlePenetrate: "YES",
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
