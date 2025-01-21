@@ -1,6 +1,6 @@
 import type { ConfigProviderThemeVars } from "@taroify/core";
-import { useCallback, useState } from "react";
 import type { ThemeName } from "~/constants/themes";
+import { useCallback, useState } from "react";
 import { themes } from "~/constants/themes";
 
 export function useTheme(initialTheme: ThemeName = "light") {

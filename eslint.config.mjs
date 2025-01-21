@@ -3,7 +3,8 @@ import kirklin from "@kirklin/eslint-config";
 export default kirklin({
   rules: {
     "node/prefer-global/process": "off",
-    "no-console": "warn",
+    "no-console": "off",
+    "style/multiline-ternary": "off",
   },
   formatters: {
     /**

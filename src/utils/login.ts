@@ -1,6 +1,6 @@
 import type Taro from "@tarojs/taro";
-import { useLogin } from "taro-hooks";
 import type { WechatAuthResponse } from "~/api/wechat";
+import { useLogin } from "taro-hooks";
 import { wechatAuthApi } from "~/api/wechat";
 import { cache } from "~/cache";
 
