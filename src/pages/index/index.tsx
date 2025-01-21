@@ -2,18 +2,42 @@ import { Avatar, Tag } from "@taroify/core";
 import { Image, Text, View } from "@tarojs/components";
 import { useLoad } from "@tarojs/taro";
 import { useState } from "react";
+import { cache } from "~/cache";
 import PageWrapper from "~/components/PageWrapper";
+import PrivacyPolicyPopup from "~/components/PrivacyPolicyPopup";
 import { RouteNames } from "~/constants/routes";
 import { redirectTo } from "~/utils/route";
 import "./index.scss";
 
 export default function Index() {
   const [isToggled, setIsToggled] = useState(false);
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
 
   useLoad(() => {
     console.log("Page loaded.");
+    // 检查用户是否已同意隐私政策
+    const hasAgreed = cache.getSync("privacyAgreed");
+    if (!hasAgreed) {
+      setShowPrivacyPolicy(true);
+    }
   });
 
+  // Privacy check
+  if (showPrivacyPolicy) {
+    return (
+      <PageWrapper
+        navTitle="Boot Taro React"
+        className="h-full"
+        shouldShowBottomActions={false}
+      >
+        {/* 隐私政策弹窗 */}
+        <PrivacyPolicyPopup
+          open={showPrivacyPolicy}
+          onClose={() => setShowPrivacyPolicy(false)}
+        />
+      </PageWrapper>
+    );
+  }
   const toggleSwitch = () => {
     setIsToggled(prev => !prev);
   };

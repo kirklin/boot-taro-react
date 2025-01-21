@@ -25,12 +25,17 @@ export default function PrivacyPolicyPopup({ open, onClose }: PrivacyPolicyPopup
     navigateTo(type === "privacy" ? RouteNames.PRIVACY_POLICY : RouteNames.USER_AGREEMENT);
   }, []);
 
+  // 空函数，用于阻止默认的关闭行为
+  const handleClose = useCallback(() => {
+    // 不执行任何操作
+  }, []);
+
   return (
     <Popup
       open={open}
       placement="bottom"
       rounded
-      onClose={onClose}
+      onClose={handleClose}
     >
       <Popup.Backdrop closeable={false} />
       <View className="mx-auto max-w-md rounded-t-2xl bg-white p-6 shadow-lg space-y-4">
