@@ -5,13 +5,14 @@ import Taro from "@tarojs/taro";
 export interface ApiResponse<T = any> {
   status: "success" | "error";
   data: T;
-  code: number;
+  code?: number;
   message: string;
 }
 
 // 定义请求配置类型
 export type RequestConfig<T = any> = Omit<Taro.request.Option<T>, "success" | "fail" | "complete"> & {
   url: ApiPath;
+  noAuth?: boolean; // 是否跳过认证
 };
 
 // 定义响应结果类型
@@ -19,7 +20,7 @@ export interface ResponseResult<T = any> {
   data: T;
   statusCode: number;
   header: Record<string, any>;
-  code: number;
+  code?: number;
   message?: string;
 }
 
@@ -43,12 +44,12 @@ export function apiRequest<T = any>(config: RequestConfig<T>): Promise<ResponseR
       ...mergedConfig,
       success: (res) => {
         const { data, statusCode, header } = res;
-        if (data.status === "success" && (data.data || data.code)) {
+        if (data.status === "success" && (data.data || data.message)) {
           resolve({
             data: data.data,
             statusCode,
             header,
-            code: data.code,
+            code: statusCode,
             message: data.message,
           });
         } else {
@@ -56,7 +57,7 @@ export function apiRequest<T = any>(config: RequestConfig<T>): Promise<ResponseR
             data: data.data,
             statusCode,
             header,
-            code: data.code,
+            code: statusCode,
             message: data.message || "请求失败",
           });
         }
