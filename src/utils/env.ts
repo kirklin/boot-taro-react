@@ -1,4 +1,5 @@
-import { getAppAuthorizeSetting, getAppBaseInfo, getDeviceInfo, getWindowInfo } from "@tarojs/taro";
+import type { Environment } from "~/utils/httpClient/constants";
+import Taro, { getAppAuthorizeSetting, getAppBaseInfo, getDeviceInfo, getWindowInfo } from "@tarojs/taro";
 import { isEmpty } from "lodash-es";
 import { cache } from "~/cache";
 
@@ -46,5 +47,24 @@ export async function fetchAndCacheSystemInfoAsync(force: boolean = true): Promi
     }
     // 如果缓存中有系统信息，则直接返回缓存内容
     return cachedSystemInfo;
+  }
+}
+
+export function getCurrentEnvironment(): Environment {
+  // 使用微信小程序 API 拿到当前的小程序环境
+  const accountInfo = Taro.getAccountInfoSync();
+  const { envVersion } = accountInfo.miniProgram;
+
+  // 判断环境版本
+  switch (envVersion) {
+    case "develop":
+      return "development";
+    case "trial":
+      return "preview";
+    case "release":
+      return "production";
+    default:
+      console.warn("Unknown envVersion. Defaulting to development.");
+      return "development";
   }
 }

@@ -1,13 +1,13 @@
 // 定义域名配置
 const domainConfig = {
   production: {
-    v1: "http://127.0.0.1:5001",
+    v1: "http://localhost:8000",
   },
-  staging: {
-    v1: "http://127.0.0.1:5001",
+  preview: {
+    v1: "http://localhost:8000",
   },
   development: {
-    v1: "http://127.0.0.1:5001",
+    v1: process.env.TARO_API_ENV === "development" ? "http://localhost:8000" : "http://localhost:8000",
   },
 } as const;
 
