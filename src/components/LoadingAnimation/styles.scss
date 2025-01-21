@@ -1,0 +1,33 @@
+.loading-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.loading-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--primary-color, #4080ff);
+  border-radius: 0.125rem;
+  display: inline-block;
+  animation: bounce 0.6s infinite;
+
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-0.625rem) scale(0.8);
+  }
+}
