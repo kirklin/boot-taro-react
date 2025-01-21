@@ -19,7 +19,7 @@ export default defineConfig(async (merge) => {
   });
   const UnoCSS = getModuleDefaultExport(await import("@unocss/webpack"));
   const baseConfig: UserConfigExport = {
-    projectName: "boot-taro-react",
+    projectName: "_boot-taro-react_",
     date: "2025-01-21",
     designWidth: 750,
     deviceRatio: {
@@ -127,7 +127,7 @@ export default defineConfig(async (merge) => {
       },
     },
     rn: {
-      appName: "boot-taro-react",
+      appName: "_boot-taro-react_",
       postcss: {
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true

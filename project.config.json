@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "boot-taro-react",
-  "description": "boot-taro-react",
+  "projectname": "_boot-taro-react_",
+  "description": "_boot-taro-react_",
   "appid": "touristappid",
   "setting": {
     "urlCheck": false,

@@ -1,9 +1,9 @@
 {
-  "name": "boot-taro-react",
+  "name": "_boot-taro-react_",
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@9.15.0",
-  "description": "boot-taro-react",
+  "description": "_boot-taro-react_",
   "templateInfo": {
     "name": "default",
     "typescript": true,
