@@ -4,12 +4,14 @@
   "description": "boot-taro-react",
   "appid": "touristappid",
   "setting": {
-    "urlCheck": true,
-    "es6": false,
+    "urlCheck": false,
+    "es6": true,
     "enhance": false,
     "compileHotReLoad": false,
     "postcss": false,
-    "minified": false
+    "minified": true,
+    "swc": true,
+    "autoAudits": true
   },
   "compileType": "miniprogram"
 }

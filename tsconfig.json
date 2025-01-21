@@ -5,7 +5,7 @@
     "lib": ["ESNext", "dom"],
     "experimentalDecorators": true,
     "rootDir": ".",
-    "module": "commonjs",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "paths": {
       // TS5090 leading './'
