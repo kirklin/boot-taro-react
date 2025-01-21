@@ -1,4 +1,5 @@
 import type Taro from "@tarojs/taro";
+import type { User } from "~/api/users";
 import type { SystemInfo } from "~/utils";
 import { createCache } from "~/utils";
 
@@ -8,31 +9,33 @@ import { createCache } from "~/utils";
  * - LocalCache: 存储到本地持久缓存中的类型
  */
 interface RamCache {
-  session_key: string; // 存储会话的临时密钥
+  launchOptions: Taro.getLaunchOptionsSync.LaunchOptions; // 小程序启动选项信息
 }
 
 interface LocalCache {
-  launchOptions: Taro.getLaunchOptionsSync.LaunchOptions; // 小程序启动选项信息
   sysInfo: SystemInfo; // 系统信息
   openid: string; // 用户的 OpenID
+  access_token?: string;
+  refresh_token?: string;
+  expires_at?: string; // Token 过期时间
+  user?: User;
 }
 
 /**
  * createCache 函数创建一个缓存实例，并提供获取/设置缓存中数据的方法。
- * 缓存实例包括两种类型的缓存：RAM 缓存（短期存储）和本地存储（长期存储）。
- *
- * 我们通过 createCache 创建的 cache 实例包含以下属性：
- * - ram: 临时存储（RAM 缓存），如会话密钥。
- * - local: 持久存储（本地缓存），如小程序系统信息、用户的 OpenID。
+ * 缓存实例包含两种类型：RAM 缓存（短期存储）、本地缓存（长期存储）。
  */
 const cache = createCache<RamCache, LocalCache>({
   ram: {
-    session_key: "",
+    launchOptions: {} as Taro.getLaunchOptionsSync.LaunchOptions, // 启动选项
   },
   local: {
-    launchOptions: {} as Taro.getLaunchOptionsSync.LaunchOptions, // 启动选项
     sysInfo: {} as SystemInfo, // 系统信息
     openid: "",
+    access_token: "",
+    refresh_token: "",
+    expires_at: "", // 默认 Token 过期时间为空
+    user: undefined, // 默认没有用户信息
   },
 });
 
