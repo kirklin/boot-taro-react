@@ -2,7 +2,6 @@
 interface EnvConfig {
   TARO_ENV: string;
   NODE_ENV: string;
-  API_ENV: string;
   AUTHOR: string;
 }
 
@@ -10,7 +9,6 @@ interface EnvConfig {
 const defaultEnvVars: EnvConfig = {
   TARO_ENV: "weapp",
   NODE_ENV: "production",
-  API_ENV: "real",
   AUTHOR: "Kirk Lin",
 };
 
@@ -47,7 +45,6 @@ function logEnv(): void {
   console.debug("Template Author:", process.env.AUTHOR);
   console.debug("TaroEnv:", process.env.TARO_ENV);
   console.debug("NodeEnv:", process.env.NODE_ENV);
-  console.debug("ApiEnv:", process.env.API_ENV);
   console.debug("Version:", version);
   console.debug();
 }

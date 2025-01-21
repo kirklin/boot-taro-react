@@ -1,7 +1,9 @@
 import type { UserConfigExport } from "@tarojs/cli";
 
 export default {
-  mini: {},
+  mini: {
+    enableSourceMap: false,
+  },
   h5: {
     /**
      * WebpackChain 插件配置

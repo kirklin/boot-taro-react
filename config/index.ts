@@ -20,7 +20,7 @@ export default defineConfig(async (merge) => {
   const UnoCSS = getModuleDefaultExport(await import("@unocss/webpack"));
   const baseConfig: UserConfigExport = {
     projectName: "boot-taro-react",
-    date: "2024-09-10",
+    date: "2025-01-21",
     designWidth: 750,
     deviceRatio: {
       640: 2.34 / 2,
@@ -49,6 +49,7 @@ export default defineConfig(async (merge) => {
       enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
     },
     mini: {
+      baseLevel: 8,
       postcss: {
         pxtransform: {
           enable: true,
@@ -73,6 +74,9 @@ export default defineConfig(async (merge) => {
       // https://github.com/NervJS/taro/issues/7160
       miniCssExtractPluginOption: {
         ignoreOrder: true,
+      },
+      optimizeMainPackage: {
+        enable: true,
       },
       webpackChain(chain) {
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
