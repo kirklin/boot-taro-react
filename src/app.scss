@@ -12,7 +12,7 @@ page {
   --gray-8: #4e5969;
   --gray-9: #272e3b;
   --gray-10: #1d2129;
-  --red: #f53f3f;
+  --red: #ff6b6b;
   --blue: #165dff;
   --blue-1: #e8f3ff;
   --blue-2: #bedaff;
@@ -27,23 +27,23 @@ page {
   --orange: #f77234;
   --orange-dark: #ed6a0c;
   --orange-light: #fffbe8;
-  --green: #9fdb1d;
+  --green: #9fd71d;
   --green-1: #fcffe8;
   --green-2: #edf8bb;
   --green-3: #dcf190;
   --green-4: #c9e968;
   --green-5: #b5e241;
-  --green-6: #9fdb1d;
+  --green-6: #9fd71d;
   --green-7: #7eb712;
   --green-8: #5f940a;
   --green-9: #437004;
   --green-10: #2a4d00;
 
-  // Gradient Colors
+  /* Gradient Colors */
   --gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
   --gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
 
-  // Component Colors
+  /* Component Colors */
   --primary-color: var(--blue);
   --primary-color-1: var(--blue-1);
   --primary-color-2: var(--blue-2);
@@ -58,54 +58,54 @@ page {
   --success-color: var(--green);
   --danger-color: var(--red);
   --warning-color: var(--orange);
-  --text-color: var(--gray-10);
+  --text-color: #333;
   --active-color: var(--gray-2);
   --active-opacity: 0.7;
   --disabled-opacity: 0.5;
-  --background-color: var(--gray-1);
+  --background-color: #f9fafc;
   --background-color-light: #fafafa;
   --text-link-color: #576b95;
 
   /* Padding */
   --padding-base: 0.45rem;
   --padding-xs: 0.5rem;
-  --padding-sm: 0.75rem; /* 12px */
-  --padding-md: 1rem; /* 16px */
-  --padding-lg: 1.5rem; /* 24px */
-  --padding-xl: 2rem; /* 32px */
+  --padding-sm: 0.875rem;
+  --padding-md: 1rem;
+  --padding-lg: 1.25rem;
+  --padding-xl: 1.75rem;
 
   /* Font Size */
   --font-size-xxxs: 0.5rem;
   --font-size-xxs: 0.625rem;
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-md: 0.9375rem; /* 15px */
-  --font-size-base: 1rem; /* 16px */
-  --font-size-lg: 1.125rem; /* 18px */
-  --font-size-xl: 1.25rem; /* 20px */
-  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 0.9375rem;
+  --font-size-base: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
 
   /* Font Weight */
-  --font-weight-bold: 700;
+  --font-weight-bold: 600;
 
   /* Line Height */
-  --line-height-xs: 1rem; /* 16px */
-  --line-height-sm: 1.25rem; /* 20px */
-  --line-height-md: 1.5rem; /* 24px */
-  --line-height-base: 1.5rem; /* 24px */
-  --line-height-lg: 1.75rem; /* 28px */
+  --line-height-xs: 1rem;
+  --line-height-sm: 1.25rem;
+  --line-height-md: 1.5rem;
+  --line-height-base: 1.625rem;
+  --line-height-lg: 1.75rem;
 
   --base-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto,
     "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   --price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
 
-  // Animation
-  --animation-duration-base: 0.3s;
-  --animation-duration-fast: 0.2s;
+  /* Animation */
+  --animation-duration-base: 0.4s;
+  --animation-duration-fast: 0.3s;
   --animation-timing-function-enter: cubic-bezier(0.32, 0, 0.67, 0);
   --animation-timing-function-leave: cubic-bezier(0.33, 1, 0.68, 1);
 
-  // Border
+  /* Border */
   --border-color: var(--gray-3);
   --border-width-base: 1px;
   --border-radius-sm: 0.125rem;
