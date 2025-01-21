@@ -27,6 +27,8 @@ export type RouteConfig = {
 export interface RouteParamConfig {
   [RouteNames.HOME]: Pick<RouteParams, "userId" | "from">;
   [RouteNames.PROFILE]: Pick<RouteParams, "from">;
+  [RouteNames.PRIVACY_POLICY]: Pick<RouteParams, never>;
+  [RouteNames.USER_AGREEMENT]: Pick<RouteParams, never>;
 }
 
 // 路由配置对象

@@ -2,12 +2,16 @@
 export enum RouteNames {
   HOME = "HOME",
   PROFILE = "PROFILE",
+  PRIVACY_POLICY = "PRIVACY_POLICY",
+  USER_AGREEMENT = "USER_AGREEMENT",
 }
 
 // 页面路径常量
 export const PAGES = {
   [RouteNames.HOME]: "/pages/index/index",
   [RouteNames.PROFILE]: "/pages/profile/index",
+  [RouteNames.PRIVACY_POLICY]: "/pages/agreements/privacy-policy",
+  [RouteNames.USER_AGREEMENT]: "/pages/agreements/user-agreement",
 } as const;
 
 /**

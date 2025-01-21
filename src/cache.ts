@@ -19,6 +19,7 @@ interface LocalCache {
   refresh_token?: string;
   expires_at?: string; // Token 过期时间
   user?: User;
+  privacyAgreed: boolean; // 是否同意隐私政策
 }
 
 /**
@@ -36,6 +37,7 @@ const cache = createCache<RamCache, LocalCache>({
     refresh_token: "",
     expires_at: "", // 默认 Token 过期时间为空
     user: undefined, // 默认没有用户信息
+    privacyAgreed: false, // 默认未同意隐私政策
   },
 });
 
