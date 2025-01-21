@@ -139,6 +139,12 @@ export interface PageWrapperProps {
   shouldShowNavigationMenu?: boolean;
 
   /**
+   * 是否显示底部导航栏
+   * Whether to show the bottom actions
+   */
+  shouldShowBottomActions?: boolean;
+
+  /**
    * 导航栏标题
    * Navigation bar title
    */
@@ -186,4 +192,10 @@ export interface PageWrapperProps {
    * Custom background class name, allows user to override default background styles
    */
   backgroundClassName?: string;
+
+  /**
+   * 是否显示加载状态
+   * Whether to show loading state
+   */
+  loading?: boolean;
 }

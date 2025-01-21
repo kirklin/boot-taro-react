@@ -1,8 +1,9 @@
 import type { NavigationMenuProps } from "./types";
 import { View } from "@tarojs/components";
-import { getCurrentPages, navigateBack, reLaunch } from "@tarojs/taro";
+import { getCurrentPages } from "@tarojs/taro";
 import { useCallback, useEffect, useState } from "react";
-import { ADAPTED_PAGES } from "~/constants/routes";
+import { ADAPTED_PAGES, RouteNames } from "~/constants/routes";
+import { navigateBack, reLaunch } from "~/utils/route";
 
 // 菜单按钮组件
 function MenuButton({ menuButton, homeUrl }: NavigationMenuProps) {
@@ -11,13 +12,13 @@ function MenuButton({ menuButton, homeUrl }: NavigationMenuProps) {
 
   // 处理返回上一页
   const handleGoBack = useCallback(() => {
-    navigateBack({ delta: 1 });
+    navigateBack();
   }, []);
 
   // 处理返回首页
   const handleGoHome = useCallback(() => {
-    reLaunch({ url: `/${homeUrl}` });
-  }, [homeUrl]);
+    reLaunch(RouteNames.HOME);
+  }, []);
 
   useEffect(() => {
     const pages = getCurrentPages();
@@ -25,16 +26,17 @@ function MenuButton({ menuButton, homeUrl }: NavigationMenuProps) {
       const currentPage = pages[pages.length - 1];
       let currentUrl = currentPage?.route || currentPage?.__route__;
 
+      // 检查页面是导航条上的路由时，不显示返回和主页按钮
       const noMenuPages = [
-        ADAPTED_PAGES.HOME,
-        ADAPTED_PAGES.PROFILE,
+        ADAPTED_PAGES[RouteNames.HOME],
+        ADAPTED_PAGES[RouteNames.PROFILE],
       ];
 
       if (currentUrl && currentUrl[0] === "/") {
         currentUrl = currentUrl.substring(1);
       }
       const currentRoute = currentUrl?.split("?")[0];
-      const isNoMenuPage = noMenuPages.includes(currentRoute);
+      const isNoMenuPage = noMenuPages.includes(currentRoute!);
 
       // 判断是否显示返回按钮, 非白名单且多于一页时显示
       setShowBackButton(pages.length > 1 && !isNoMenuPage);
@@ -62,7 +64,7 @@ function MenuButton({ menuButton, homeUrl }: NavigationMenuProps) {
       {showBackButton && (
         <NavigationButton
           className="navigation-menu__back mr-10px"
-          icon="i-tabler-arrow-back-up"
+          icon="i-line-md-chevron-left"
           onClick={handleGoBack}
           size={menuButton.height}
         />
@@ -70,7 +72,7 @@ function MenuButton({ menuButton, homeUrl }: NavigationMenuProps) {
       {showHomeButton && (
         <NavigationButton
           className="navigation-menu__home"
-          icon="i-tabler-home"
+          icon="i-line-md-home"
           onClick={handleGoHome}
           size={menuButton.height}
         />
@@ -97,7 +99,7 @@ function NavigationButton({ className, icon, onClick, size }: NavigationButtonPr
       }}
       onClick={onClick}
     >
-      <View className={`${icon} text-bold`}></View>
+      <View className={`${icon} text-bold p-[2px]`}></View>
     </View>
   );
 }

@@ -77,7 +77,7 @@ function BottomActionButton({ className, icon, onClick, index, text }: BottomAct
 
   return (
     <View
-      className={`flex items-center justify-center rounded-full size-10 ${marginClass} ${className} w-full`}
+      className={`flex items-center justify-center rounded-full size-10 ${marginClass} ${className}`}
       onClick={onClick}
     >
       {icon && <View className={`${icon} text-base`} />}

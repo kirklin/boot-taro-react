@@ -3,6 +3,7 @@ import { View } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import { useEffect, useState } from "react";
 import NavigationMenu from "~/components/PageWrapper/NavigationMenu";
+import { ADAPTED_PAGES, RouteNames } from "~/constants/routes";
 
 // NavBar 组件
 function NavBar({
@@ -27,7 +28,7 @@ function NavBar({
             paddingTop: `${statusBarHeight}px`,
           }}
         >
-          {shouldShowNavigationMenu && <NavigationMenu homeUrl="pages/index/index" menuButton={menuButton} />}
+          {shouldShowNavigationMenu && <NavigationMenu homeUrl={ADAPTED_PAGES[RouteNames.MESSAGES]} menuButton={menuButton} />}
           <View
             className="navigation-bar__content h-full flex flex-col items-center justify-center"
             style={{
