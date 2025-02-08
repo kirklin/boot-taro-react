@@ -1,5 +1,6 @@
+import type { UserConfigExport } from "@tarojs/cli";
 import { resolve } from "node:path";
-import { defineConfig, type UserConfigExport } from "@tarojs/cli";
+import { defineConfig } from "@tarojs/cli";
 import { createSwcRegister, getModuleDefaultExport } from "@tarojs/helper";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import devConfig from "./dev";
