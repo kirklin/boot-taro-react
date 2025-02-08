@@ -39,7 +39,7 @@ export function apiRequest<T = any>(config: RequestConfig<T>): Promise<ResponseR
 
   const mergedConfig: Taro.request.Option = { ...defaultConfig, ...config };
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     Taro.request<ApiResponse<T>>({
       ...mergedConfig,
       success: (res) => {
@@ -53,23 +53,25 @@ export function apiRequest<T = any>(config: RequestConfig<T>): Promise<ResponseR
             message: data.message,
           });
         } else {
-          resolve({
+          const error = new Error(data.message || "请求失败");
+          Object.assign(error, {
             data: data.data,
             statusCode,
             header,
             code: statusCode,
-            message: data.message || "请求失败",
           });
+          reject(error);
         }
       },
       fail: (err) => {
-        resolve({
+        const error = new Error(err.errMsg || "网络请求失败");
+        Object.assign(error, {
           data: {} as T,
           statusCode: 500,
           header: {},
           code: 500,
-          message: err.errMsg || "网络请求失败",
         });
+        reject(error);
       },
     });
   });
