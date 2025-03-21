@@ -1,55 +1,75 @@
 import type { ReactNode } from "react";
 import { FixedView } from "@taroify/core";
 import { View } from "@tarojs/components";
-import { useRouter } from "@tarojs/taro";
+import { getCurrentInstance, useDidShow } from "@tarojs/taro";
 import { useEffect, useState } from "react";
 import { PAGES, RouteNames } from "~/constants/routes";
-import { redirectTo } from "~/utils/route";
+import { switchTab } from "~/utils/route";
 
 export default function BottomActions() {
-  const [currentPage, setCurrentPage] = useState("");
-  const router = useRouter();
+  // 获取当前页面路径
+  const getCurrentPath = () => {
+    return getCurrentInstance().router?.path || "";
+  };
 
-  // 设置当前页面路径
+  const [currentPage, setCurrentPage] = useState(getCurrentPath());
+
+  // 使用useDidShow钩子监听页面显示事件
+  useDidShow(() => {
+    setCurrentPage(getCurrentPath());
+  });
+
+  // 每次重新渲染时更新当前页面路径
   useEffect(() => {
-    setCurrentPage(router.path);
-  }, [router]);
-
-  // 页面跳转处理
-  function handleRedirect(route: RouteNames) {
-    const path = PAGES[route] as string;
-    setCurrentPage(path);
-    redirectTo(route);
-  }
+    setCurrentPage(getCurrentPath());
+  }, []);
 
   // 判断当前页面是否是需要显示底部按钮的页面
-  const showBottomActions = [
-    PAGES[RouteNames.HOME],
-    PAGES[RouteNames.PROFILE],
-    // eslint-disable-next-line ts/ban-ts-comment
-    // @ts-expect-error
-  ].includes(currentPage);
+  const showBottomActions = Object.values(PAGES).some((path) => {
+    // 标准化路径比较
+    const normalizedCurrentPage = currentPage.replace(/^\//, "");
+    const normalizedPagePath = path.replace(/^\//, "");
+
+    return normalizedCurrentPage === normalizedPagePath
+      || normalizedCurrentPage.split("?")[0] === normalizedPagePath;
+  });
+
+  // 处理页面跳转的逻辑
+  function handleTabSwitch(route: RouteNames) {
+    switchTab(route);
+  }
+
+  // 判断当前页面是哪个Tab
+  const isCurrentTab = (pagePath: string) => {
+    // 标准化路径以确保一致性比较（移除开头的斜杠）
+    const normalizedCurrentPage = currentPage.replace(/^\//, "");
+    const normalizedPagePath = pagePath.replace(/^\//, "");
+
+    // 检查标准化后的路径是否匹配
+    return normalizedCurrentPage === normalizedPagePath
+    // 如果当前页面路径包含查询参数，只比较路径部分
+      || normalizedCurrentPage.split("?")[0] === normalizedPagePath;
+  };
 
   return (
-    // 如果当前页面不在允许显示导航的页面列表中，则不渲染导航
     showBottomActions && (
       <FixedView position="bottom" safeArea="bottom">
         <View
           className="bottom-actions mb-3 flex justify-around rounded-full bg-white px-4 py-2 shadow-lg"
           style={{ width: "fit-content", margin: "1rem auto" }}
         >
-          {/* 留言页图标 */}
+          {/* 首页图标 */}
           <BottomActionButton
-            className={` ${currentPage === PAGES[RouteNames.HOME] ? "bg-primary-1 text-primary-6" : "text-text"}`}
+            className={`${isCurrentTab(PAGES[RouteNames.HOME]) ? "bg-primary-1 text-primary-6" : "text-text"} `}
             icon="i-line-md-home-md-alt-twotone"
-            onClick={() => handleRedirect(RouteNames.HOME)}
+            onClick={() => handleTabSwitch(RouteNames.HOME)}
             index={0}
           />
           {/* 个人资料页图标 */}
           <BottomActionButton
-            className={`${currentPage === PAGES[RouteNames.PROFILE] ? "bg-primary-1 text-primary-6" : "text-text"} `}
+            className={`${isCurrentTab(PAGES[RouteNames.PROFILE]) ? "bg-primary-1 text-primary-6" : "text-text"} `}
             icon="i-iconamoon-profile"
-            onClick={() => handleRedirect(RouteNames.PROFILE)}
+            onClick={() => handleTabSwitch(RouteNames.PROFILE)}
             index={2}
           />
         </View>

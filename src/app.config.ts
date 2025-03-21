@@ -19,4 +19,17 @@ export default defineAppConfig({
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black",
   },
+  tabBar: {
+    custom: true,
+    list: [
+      {
+        pagePath: ADAPTED_PAGES[RouteNames.HOME],
+        text: "首页",
+      },
+      {
+        pagePath: ADAPTED_PAGES[RouteNames.PROFILE],
+        text: "我的",
+      },
+    ],
+  },
 });
