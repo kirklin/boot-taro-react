@@ -81,8 +81,7 @@ export async function authInterceptor(config: RequestConfig): Promise<RequestCon
         throw new Error("Login required");
       }
     }
-    // 如果token过期,需要刷新
-  } else if (isTokenExpired(expiresAt)) {
+  } else if (isTokenExpired(expiresAt)) { // 如果token过期,需要刷新
     if (!isRefreshing) {
       isRefreshing = true;
       refreshTokenPromise = refreshAccessToken()

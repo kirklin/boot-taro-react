@@ -72,11 +72,36 @@ function resolvePathParams(url: ApiPath, data: Record<string, any> | null): ApiP
   if (!data) {
     return url;
   }
-  return url.replace(/:([^/]+)/g, (_, param) => {
-    const value = data[param];
-    delete data[param];
+
+  // 添加调试日志
+  const originalUrl = url;
+
+  // 深度复制数据，避免修改原始对象
+  const dataCopy = { ...data };
+
+  // 替换所有匹配 /:paramName 的部分
+  const resolvedUrl = url.replace(/:([^/]+)/g, (_, param) => {
+    // 检查参数是否存在
+    if (dataCopy[param] === undefined) {
+      console.warn(`Missing path parameter: ${param} for URL: ${originalUrl}`);
+      return `:${param}`; // 保持原样，以便更清晰地显示错误
+    }
+
+    // 获取参数值并转换为字符串
+    const value = String(dataCopy[param]);
+
+    // 从数据对象中删除已使用的参数
+    delete dataCopy[param];
+
     return value;
   }) as ApiPath;
+
+  // console.log(`URL Path params resolved: ${originalUrl} -> ${resolvedUrl}`, {
+  //   originalParams: { ...data },
+  //   remainingParams: dataCopy,
+  // });
+
+  return resolvedUrl;
 }
 
 /**

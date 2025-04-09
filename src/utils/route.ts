@@ -105,9 +105,13 @@ export function redirectTo<T extends RouteNames>(
 /**
  * 类型安全的返回上一页
  * @param delta 返回的页面数，如果 delta 大于现有页面数，则返回到首页
+ * @param success 成功回调函数，可在返回上一页后执行刷新等操作
  */
-export function navigateBack(delta = 1): Promise<TaroGeneral.CallbackResult> {
-  return Taro.navigateBack({ delta });
+export function navigateBack(
+  delta = 1,
+  success?: () => void,
+): Promise<TaroGeneral.CallbackResult> {
+  return Taro.navigateBack({ delta, success });
 }
 
 /**
