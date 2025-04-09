@@ -92,14 +92,16 @@ interface NavigationButtonProps {
 function NavigationButton({ className, icon, onClick, size }: NavigationButtonProps) {
   return (
     <View
-      className={`rounded-full flex items-center justify-center ${className}`}
+      className={`rounded-full flex items-center justify-center glass-effect shadow-sm transition-all active:scale-95 active:opacity-75 hover-scale press-scale ${className}`}
       style={{
         width: `${size}px`,
         height: `${size}px`,
+        transition: "all 0.3s var(--animation-timing-function-enter)",
+        willChange: "transform",
       }}
       onClick={onClick}
     >
-      <View className={`${icon} text-bold p-[2px]`}></View>
+      <View className={`${icon} text-primary-6 text-bold p-[2px]`}></View>
     </View>
   );
 }
