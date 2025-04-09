@@ -1,4 +1,4 @@
-import type { User } from "~/api/users";
+import type { User } from "~/api/models/user";
 import { createFetch } from "~/utils/httpClient";
 
 // 定义响应类型

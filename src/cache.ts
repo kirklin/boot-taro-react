@@ -1,5 +1,5 @@
 import type Taro from "@tarojs/taro";
-import type { User } from "~/api/users";
+import type { User } from "~/api/models/user";
 import type { SystemInfo } from "~/utils";
 import { createCache } from "~/utils";
 
