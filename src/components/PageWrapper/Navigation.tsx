@@ -85,7 +85,20 @@ export default function Navigation({
     const fetchMenuButtonInfo = async () => {
       try {
         const windowInfo = Taro.getWindowInfo();
-        const menuButtonInfo = Taro.getMenuButtonBoundingClientRect();
+        let menuButtonInfo;
+
+        if (process.env.TARO_ENV === "h5") {
+          // H5 模拟胶囊按钮信息的默认值
+          menuButtonInfo = {
+            top: 7,
+            height: 32,
+            width: 87,
+            right: windowInfo.windowWidth - 7,
+          };
+        } else {
+          menuButtonInfo = Taro.getMenuButtonBoundingClientRect();
+        }
+
         setMenuButton({
           top: menuButtonInfo.top,
           height: menuButtonInfo.height,

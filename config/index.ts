@@ -45,7 +45,12 @@ export default defineConfig(async (merge) => {
       },
     },
     framework: "react",
-    compiler: "webpack5",
+    compiler: {
+      type: "webpack5",
+      prebundle: {
+        enable: false,
+      },
+    },
     cache: {
       enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
     },
@@ -88,25 +93,19 @@ export default defineConfig(async (merge) => {
       publicPath: "/",
       staticDirectory: "static",
       esnextModules: ["@taroify"],
-      output: {
-        filename: "js/[name].[hash:8].js",
-        chunkFilename: "js/[name].[chunkhash:8].js",
-      },
-      miniCssExtractPluginOption: {
-        ignoreOrder: true,
-        filename: "css/[name].[hash].css",
-        chunkFilename: "css/[name].[chunkhash].css",
-      },
       router: {
         mode: "browser",
       },
       devServer: {
         port: 8888,
-        hot: false,
+        hot: true,
         host: "0.0.0.0",
         historyApiFallback: true,
         headers: {
           "Access-Control-Allow-Origin": "*", // 表示允许跨域
+        },
+        client: {
+          overlay: false,
         },
       },
       postcss: {
@@ -114,17 +113,17 @@ export default defineConfig(async (merge) => {
           enable: true,
           config: {},
         },
-        cssModules: {
-          enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
-          config: {
-            namingPattern: "module", // 转换模式，取值为 global/module
-            generateScopedName: "[name]__[local]___[hash:base64:5]",
-          },
+        pxtransform: {
+          enable: true,
+          config: {},
         },
       },
       webpackChain(chain) {
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
-        chain.plugin("unocss").use(UnoCSS());
+        chain.plugin("unocss").use(UnoCSS({
+          // Force UnoCSS Webpack injection to be handled securely as CSS rather than throwing raw AST
+          hmrTopLevelAwait: false,
+        }));
       },
     },
     rn: {

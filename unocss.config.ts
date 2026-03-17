@@ -1,19 +1,30 @@
-import { defineConfig, presetAttributify, presetIcons, transformerDirectives, transformerVariantGroup } from "unocss";
+import IconIconamoon from "@iconify-json/iconamoon/icons.json";
+import IconLineMd from "@iconify-json/line-md/icons.json";
+import IconMdi from "@iconify-json/mdi/icons.json";
+import IconTabler from "@iconify-json/tabler/icons.json";
+
+import { defineConfig, presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
 import {
   presetApplet,
   presetRemRpx,
   transformerAttributify,
 } from "unocss-applet";
-import presetChinese from "unocss-preset-chinese";
 import presetEase from "unocss-preset-ease";
 
-const isApplet = process.env.TARO_ENV !== "h5" ?? false;
+const isApplet = process.env.TARO_ENV !== "h5";
+console.log("[UnoCSS Config] TARO_ENV:", process.env.TARO_ENV, "isApplet:", isApplet);
 
 export default defineConfig({
   presets: [
     presetIcons({
       scale: 1.5,
       warn: true,
+      collections: {
+        "mdi": () => IconMdi,
+        "tabler": () => IconTabler,
+        "line-md": () => IconLineMd,
+        "iconamoon": () => IconIconamoon,
+      },
       extraProperties: {
         "display": "inline-block",
         "vertical-align": "middle",
@@ -23,12 +34,21 @@ export default defineConfig({
      * you can add `presetAttributify()` here to enable unocss attributify mode prompt
      * although preset is not working for applet, but will generate useless css
      */
-    presetChinese(),
+    // presetChinese(), // Temporary disable: Complex quotes cause Syntax Error in Webpack css-loader output
     presetEase(),
-    presetApplet(),
+    isApplet ? presetApplet() : presetUno(),
     presetAttributify(),
-    presetRemRpx({ mode: isApplet ? "rem2rpx" : "rpx2rem" }),
-  ],
+    isApplet ? presetRemRpx({ mode: "rem2rpx" }) : undefined,
+  ].filter(Boolean) as any,
+  postprocess: !isApplet ? (util) => {
+    util.entries.forEach((i) => {
+      const value = i[1];
+      if (typeof value === "string" && value.includes("rem")) {
+        // e.g., converts '1.5rem' to '24px'
+        i[1] = value.replace(/(-?[\d.]+)rem/g, (_, p1) => `${Number.parseFloat(p1) * 16}px`);
+      }
+    });
+  } : undefined,
   shortcuts: {
     // position
     "common-bg": "bg-gray-100 dark:bg-gray-900",

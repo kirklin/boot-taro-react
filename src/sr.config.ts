@@ -1,7 +1,5 @@
 // srInit.ts
-import sr from "sr-sdk-wxapp";
-
-// srConfig.ts
+// import sr from "sr-sdk-wxapp";// srConfig.ts
 export const srConfig = {
   /**
    * 有数 - ka‘接入测试用’ 分配的 app_id，对应的业务接口人负责
@@ -70,8 +68,13 @@ export const srConfig = {
   },
 };
 
-export function initSRSDK(isEnabled: boolean) {
-  if (isEnabled) {
-    sr.init(srConfig);
+export async function initSRSDK(isEnabled: boolean) {
+  if (isEnabled && process.env.TARO_ENV !== "h5") {
+    try {
+      const sr = (await import("sr-sdk-wxapp")).default;
+      sr.init(srConfig);
+    } catch (e) {
+      console.warn("SR SDK Init Error:", e);
+    }
   }
 }
