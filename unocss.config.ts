@@ -3,7 +3,7 @@ import IconLineMd from "@iconify-json/line-md/icons.json";
 import IconMdi from "@iconify-json/mdi/icons.json";
 import IconTabler from "@iconify-json/tabler/icons.json";
 
-import { defineConfig, presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
+import { defineConfig, presetAttributify, presetIcons, transformerDirectives, transformerVariantGroup } from "unocss";
 import {
   presetApplet,
   presetRemRpx,
@@ -36,19 +36,13 @@ export default defineConfig({
      */
     // presetChinese(), // Temporary disable: Complex quotes cause Syntax Error in Webpack css-loader output
     presetEase(),
-    isApplet ? presetApplet() : presetUno(),
+    isApplet ? presetApplet() : presetApplet(),
     presetAttributify(),
-    isApplet ? presetRemRpx({ mode: "rem2rpx" }) : undefined,
+    presetRemRpx({ mode: isApplet ? "rem2rpx" : "rpx2rem" }),
   ].filter(Boolean) as any,
-  postprocess: !isApplet ? (util) => {
-    util.entries.forEach((i) => {
-      const value = i[1];
-      if (typeof value === "string" && value.includes("rem")) {
-        // e.g., converts '1.5rem' to '24px'
-        i[1] = value.replace(/(-?[\d.]+)rem/g, (_, p1) => `${Number.parseFloat(p1) * 16}px`);
-      }
-    });
-  } : undefined,
+  // 不再需要手动 postprocess：presetRemRpx 已处理双端单位转换
+  // 小程序: rem → rpx (presetRemRpx mode: rem2rpx)
+  // H5: 保持 rem (presetRemRpx mode: rpx2rem)，由浏览器原生渲染
   shortcuts: {
     // position
     "common-bg": "bg-gray-100 dark:bg-gray-900",

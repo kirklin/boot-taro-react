@@ -1,6 +1,6 @@
 import { Avatar, Tag } from "@taroify/core";
 import { Image, Text, View } from "@tarojs/components";
-import { useLoad } from "@tarojs/taro";
+import Taro, { useLoad } from "@tarojs/taro";
 import { useState } from "react";
 import { cache } from "~/cache";
 import PageWrapper from "~/components/PageWrapper";
@@ -132,18 +132,21 @@ export default function Index() {
               查看全部
             </View>
           </View>
-          <View className="relative m-0 space-y-4">
+          <View className="relative m-0" style={{ height: Taro.pxTransform(230) }}>
             {[1, 2, 3].map((item, index) => (
               <View
                 key={item}
-                className="absolute w-full transition-transform"
+                className="absolute w-full"
                 style={{
-                  transform: `translateY(${index * 1.6}rem) scale(${1 - index * 0.1})`,
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  transform: `translateY(${Taro.pxTransform(index * 70)}) scale(${1 - index * 0.04})`,
                   zIndex: 4 - index,
                 }}
               >
                 <View className="flex items-center rounded-xl bg-gray-100 p-4 shadow-lg">
-                  <Image className="mr-2 h-8 w-8 rounded-full" src={`https://avatars.githubusercontent.com/u/17453452?v=" />${item}`} />
+                  <Image className="mr-2 h-8 w-8 rounded-full" src={`https://avatars.githubusercontent.com/u/17453452?v=${item}`} />
                   <View className="flex-1">
                     <View className="text-gray-800 font-medium">
                       示例项目
