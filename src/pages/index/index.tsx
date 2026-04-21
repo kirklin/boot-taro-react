@@ -88,14 +88,24 @@ export default function Index() {
                   <Text className="text-base text-gray-800 font-medium">示例开关</Text>
                 </View>
               </View>
+              {/* 自定义 Toggle 开关
+                   - 轨道: h-6 w-12 p-1 → weapp 下为 48rpx × 96rpx，内边距 8rpx
+                   - 滑块: h-4 w-4 → weapp 下为 32rpx × 32rpx
+                   - 背景色根据 isToggled 状态动态切换，提供开/关视觉反馈
+                   - translateX 使用 Taro.pxTransform 保证 weapp/H5 双端单位兼容 */}
               <View className="mb-2 flex justify-center">
+                {/* 轨道：开启时蓝色(bg-primary-6)，关闭时灰色(bg-gray-200) */}
                 <View
-                  className="h-6 w-12 cursor-pointer rounded-full bg-gray-200 p-1"
+                  className={`h-6 w-12 cursor-pointer rounded-full p-1 transition-all duration-300 ${isToggled ? "bg-primary-6" : "bg-gray-200"}`}
                   onClick={toggleSwitch}
                 >
+                  {/* 滑块：滑动距离 = 轨道内宽(96-8×2) - 滑块宽(32) = 48rpx
+                       Taro.pxTransform(48) 会根据 designWidth=750 自动转换:
+                       - weapp → 48rpx
+                       - H5 → 对应 rem 值 */}
                   <View
                     className="h-4 w-4 transform rounded-full bg-white shadow-md transition-transform duration-300 ease-in-out"
-                    style={{ transform: isToggled ? "translateX(1.5rem)" : "translateX(0)" }}
+                    style={{ transform: isToggled ? `translateX(${Taro.pxTransform(48)})` : "translateX(0)" }}
                   />
                 </View>
               </View>
