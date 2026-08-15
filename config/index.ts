@@ -120,10 +120,15 @@ export default defineConfig(async (merge) => {
       },
       webpackChain(chain) {
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
-        chain.plugin("unocss").use(UnoCSS({
-          // Force UnoCSS Webpack injection to be handled securely as CSS rather than throwing raw AST
-          hmrTopLevelAwait: false,
-        }));
+        // NOTE: UnoCSS Webpack plugin is intentionally NOT used for H5.
+        // The @unocss/webpack unplugin hijacks NormalModuleFactory and strips the `type:'json'`
+        // flag from @tarojs/taro-h5 internal JSON files, causing ModuleParseError crashes.
+        // H5 uses a static src/uno.scss (generated via `npm run unocss`) instead,
+        // processed through Taro's standard sass-loader + postcss-pxtransform pipeline.
+        //
+        // Map the virtual `uno.css` import to the physical static file so app.tsx
+        // can use a single `import "uno.css"` across both platforms.
+        chain.resolve.alias.set("uno.css", resolve(__dirname, "../src/uno.scss"));
       },
     },
     rn: {

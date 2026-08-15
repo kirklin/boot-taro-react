@@ -1,9 +1,11 @@
+import path from "node:path";
 import IconIconamoon from "@iconify-json/iconamoon/icons.json";
 import IconLineMd from "@iconify-json/line-md/icons.json";
 import IconMdi from "@iconify-json/mdi/icons.json";
-import IconTabler from "@iconify-json/tabler/icons.json";
 
-import { defineConfig, presetAttributify, presetIcons, transformerDirectives, transformerVariantGroup } from "unocss";
+import IconTabler from "@iconify-json/tabler/icons.json";
+import presetRemToPx from "@unocss/preset-rem-to-px";
+import { defineConfig, presetAttributify, presetIcons, presetUno, transformerVariantGroup } from "unocss";
 import {
   presetApplet,
   presetRemRpx,
@@ -12,7 +14,20 @@ import {
 import presetEase from "unocss-preset-ease";
 
 const isApplet = process.env.TARO_ENV !== "h5";
-console.log("[UnoCSS Config] TARO_ENV:", process.env.TARO_ENV, "isApplet:", isApplet);
+
+/**
+ * 生成一个 CSS 变量颜色 scale，同时支持语义编号（1-10）和 Tailwind 风格编号（100-1000）
+ * 例如 makeScale("gray") 生成 { 1: "var(--gray-1)", 100: "var(--gray-1)", ... }
+ */
+function makeScale(prefix: string): Record<number, string> {
+  const scale: Record<number, string> = {};
+  for (let i = 1; i <= 10; i++) {
+    const v = `var(--${prefix}-${i})`;
+    scale[i] = v; // text-gray-1
+    scale[i * 100] = v; // text-gray-100
+  }
+  return scale;
+}
 
 export default defineConfig({
   presets: [
@@ -36,13 +51,18 @@ export default defineConfig({
      */
     // presetChinese(), // Temporary disable: Complex quotes cause Syntax Error in Webpack css-loader output
     presetEase(),
-    isApplet ? presetApplet() : presetApplet(),
+    isApplet ? presetApplet() : presetUno(),
     presetAttributify(),
-    presetRemRpx({ mode: isApplet ? "rem2rpx" : "rpx2rem" }),
+    isApplet ? presetRemRpx({ mode: "rem2rpx" }) : presetRemToPx({ baseFontSize: 28 }),
   ].filter(Boolean) as any,
-  // 不再需要手动 postprocess：presetRemRpx 已处理双端单位转换
-  // 小程序: rem → rpx (presetRemRpx mode: rem2rpx)
-  // H5: 保持 rem (presetRemRpx mode: rpx2rem)，由浏览器原生渲染
+  content: {
+    pipeline: {
+      exclude: [/\.(css|postcss|sass|scss|less|stylus|styl)$/, /node_modules/, /^data:/],
+    },
+    filesystem: [
+      path.resolve(__dirname, "src/**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}"),
+    ],
+  },
   shortcuts: {
     // position
     "common-bg": "bg-gray-100 dark:bg-gray-900",
@@ -73,94 +93,10 @@ export default defineConfig({
   },
   theme: {
     colors: {
-      gray: {
-        1: "var(--gray-1)",
-        2: "var(--gray-2)",
-        3: "var(--gray-3)",
-        4: "var(--gray-4)",
-        5: "var(--gray-5)",
-        6: "var(--gray-6)",
-        7: "var(--gray-7)",
-        8: "var(--gray-8)",
-        9: "var(--gray-9)",
-        10: "var(--gray-10)",
-        100: "var(--gray-1)",
-        200: "var(--gray-2)",
-        300: "var(--gray-3)",
-        400: "var(--gray-4)",
-        500: "var(--gray-5)",
-        600: "var(--gray-6)",
-        700: "var(--gray-7)",
-        800: "var(--gray-8)",
-        900: "var(--gray-9)",
-        1000: "var(--gray-10)",
-      },
-      blue: {
-        1: "var(--blue-1)",
-        2: "var(--blue-2)",
-        3: "var(--blue-3)",
-        4: "var(--blue-4)",
-        5: "var(--blue-5)",
-        6: "var(--blue-6)",
-        7: "var(--blue-7)",
-        8: "var(--blue-8)",
-        9: "var(--blue-9)",
-        10: "var(--blue-10)",
-        100: "var(--blue-1)",
-        200: "var(--blue-2)",
-        300: "var(--blue-3)",
-        400: "var(--blue-4)",
-        500: "var(--blue-5)",
-        600: "var(--blue-6)",
-        700: "var(--blue-7)",
-        800: "var(--blue-8)",
-        900: "var(--blue-9)",
-        1000: "var(--blue-10)",
-      },
-      green: {
-        1: "var(--green-1)",
-        2: "var(--green-2)",
-        3: "var(--green-3)",
-        4: "var(--green-4)",
-        5: "var(--green-5)",
-        6: "var(--green-6)",
-        7: "var(--green-7)",
-        8: "var(--green-8)",
-        9: "var(--green-9)",
-        10: "var(--green-10)",
-        100: "var(--green-1)",
-        200: "var(--green-2)",
-        300: "var(--green-3)",
-        400: "var(--green-4)",
-        500: "var(--green-5)",
-        600: "var(--green-6)",
-        700: "var(--green-7)",
-        800: "var(--green-8)",
-        900: "var(--green-9)",
-        1000: "var(--green-10)",
-      },
-      primary: {
-        1: "var(--primary-color-1)",
-        2: "var(--primary-color-2)",
-        3: "var(--primary-color-3)",
-        4: "var(--primary-color-4)",
-        5: "var(--primary-color-5)",
-        6: "var(--primary-color-6)",
-        7: "var(--primary-color-7)",
-        8: "var(--primary-color-8)",
-        9: "var(--primary-color-9)",
-        10: "var(--primary-color10)",
-        100: "var(--primary-color-1)",
-        200: "var(--primary-color-2)",
-        300: "var(--primary-color-3)",
-        400: "var(--primary-color-4)",
-        500: "var(--primary-color-5)",
-        600: "var(--primary-color-6)",
-        700: "var(--primary-color-7)",
-        800: "var(--primary-color-8)",
-        900: "var(--primary-color-9)",
-        1000: "var(--primary-color10)",
-      },
+      gray: makeScale("gray"),
+      blue: makeScale("blue"),
+      green: makeScale("green"),
+      primary: makeScale("primary-color"),
       success: "var(--success-color)",
       danger: "var(--danger-color)",
       warning: "var(--warning-color)",
@@ -214,7 +150,7 @@ export default defineConfig({
     },
   },
   transformers: [
-    transformerDirectives(),
+    // transformerDirectives(), // Disabled to prevent Webpack 5 data URI loader bug in H5
     transformerVariantGroup(),
     // Don't change the following order
     transformerAttributify(),

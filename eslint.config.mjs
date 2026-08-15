@@ -7,6 +7,9 @@ export default kirklin({
     "style/multiline-ternary": "off",
     "e18e/prefer-static-regex": "off",
     "erasable-syntax-only/enums": "off",
+    // trustPolicy is disabled here: Taro 4.2.0's dependency tree pulls legacy
+    // packages (semver@6.3.1, detect-port@1.6.1) that fail the no-downgrade check.
+    "pnpm/yaml-enforce-settings": "off",
   },
   formatters: {
     /**

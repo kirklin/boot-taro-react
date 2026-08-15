@@ -1,9 +1,10 @@
-import type { MenuButtonInfo, NavBarProps, NavigationProps } from "./types";
+import type { NavBarProps, NavigationProps } from "./types";
 import { View } from "@tarojs/components";
-import Taro, { usePageScroll } from "@tarojs/taro";
-import { useEffect, useState } from "react";
+import { usePageScroll } from "@tarojs/taro";
+import { useState } from "react";
 import NavigationMenu from "~/components/PageWrapper/NavigationMenu";
 import { ADAPTED_PAGES, RouteNames } from "~/constants/routes";
+import { useMenuButtonInfo } from "~/hooks/useMenuButtonInfo";
 
 // NavBar 组件
 function NavBar({
@@ -78,41 +79,7 @@ export default function Navigation({
   renderCustomHeader,
   shouldShowNavigationMenu,
 }: NavigationProps) {
-  const [menuButton, setMenuButton] = useState<MenuButtonInfo | null>(null);
-
-  useEffect(() => {
-    // 获取菜单按钮（胶囊按钮）的位置信息
-    const fetchMenuButtonInfo = async () => {
-      try {
-        const windowInfo = Taro.getWindowInfo();
-        let menuButtonInfo;
-
-        if (process.env.TARO_ENV === "h5") {
-          // H5 模拟胶囊按钮信息的默认值
-          menuButtonInfo = {
-            top: 7,
-            height: 32,
-            width: 87,
-            right: windowInfo.windowWidth - 7,
-          };
-        } else {
-          menuButtonInfo = Taro.getMenuButtonBoundingClientRect();
-        }
-
-        setMenuButton({
-          top: menuButtonInfo.top,
-          height: menuButtonInfo.height,
-          statusBarHeight: windowInfo.statusBarHeight || 0,
-          width: menuButtonInfo.width,
-          marginRight: windowInfo.windowWidth - menuButtonInfo.right,
-        });
-      } catch (error) {
-        console.error("获取菜单按钮信息失败:", error);
-      }
-    };
-
-    fetchMenuButtonInfo();
-  }, []);
+  const menuButton = useMenuButtonInfo();
 
   return menuButton
     ? (

@@ -1,0 +1,15 @@
+shellEmulator: true
+
+patchedDependencies:
+  "@tarojs/components@4.2.0": patches/@tarojs__components@4.2.0.patch
+
+allowBuilds:
+  "@parcel/watcher": false
+  "@swc/core": false
+  "@tarojs/binding": false
+  "@tarojs/cli": false
+  core-js: false
+  core-js-pure: false
+  esbuild: false
+  taro-hooks: false
+  unrs-resolver: false

@@ -69,7 +69,7 @@ export const srConfig = {
 };
 
 export async function initSRSDK(isEnabled: boolean) {
-  if (isEnabled && process.env.TARO_ENV !== "h5") {
+  if (isEnabled) {
     try {
       const sr = (await import("sr-sdk-wxapp")).default;
       sr.init(srConfig);

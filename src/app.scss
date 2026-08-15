@@ -146,6 +146,8 @@ page {
 // 添加 :root 确保 CSS 变量能被 portal、弹窗等脱离页面树的组件继承
 /* #ifdef h5 */
 page,
+html,
+body,
 :root {
   @include design-tokens;
 }
